@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rh_fullscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".RoutenHaupt"
+    tools:showIn="@layout/activity_routen_haupt">
+
+    <LinearLayout
+        android:id="@+id/Top_Layout_routenwahl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <FrameLayout
+            android:id="@+id/tv_top_layout_rh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9">
+
+            <TextView
+                android:id="@+id/tvRoutenwahl"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/roundtextview"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_top_layout_rh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+
+            <ImageView
+                android:id="@+id/ImgViewChooseRouten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_chevron_right_black_18dp"
+                android:contentDescription="@string/chooseRouteImgView"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_top_mid_rw"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/Top_Layout_routenwahl"
+        android:background="@color/black" />
+
+    <ScrollView
+        android:id="@+id/sv_routen_haupt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/divider_top_mid_rw">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/middle_Layout_routenwahl"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/map_routen"
+                    android:name="com.google.android.gms.maps.MapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end">
+
+                        <ImageButton
+                            android:id="@+id/ImgBtnPoi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:contentDescription="@string/ImgBtnPOI" />
+
+                        <ImageButton
+                            android:id="@+id/ImgBtnFullscreenMap"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ImgBtnPoi"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:contentDescription="@string/ImgBtnFullscreen"/>
+
+                        <ImageButton
+                            android:id="@+id/ImgBtnLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ImgBtnFullscreenMap"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:contentDescription="@string/imgBtnLocation"/>
+                    </RelativeLayout>
+                </fragment>
+
+                <ImageView
+                    android:id="@+id/transparent_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/transparentImage"/>
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider_mid_bot_rw"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/middle_Layout_routenwahl"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/bottom_layout_routenwahl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_mid_bot_rw"
+                android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                <FrameLayout
+                    android:id="@+id/layout_info_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="@color/Routen_gelb">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/routeninfo"
+                        android:textColor="@color/Routen_rot"
+                        android:textSize="15sp" />
+                </FrameLayout>
+
+                <View
+                    android:id="@+id/divider_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/layout_info_header"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/layout_hoehenprofil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider_info"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_info_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/layout_hoehenprofil"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_divider"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_info_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider_info_1"
+                    android:weightSum="2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_info_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/layout_info_top"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_divider"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_info_middle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider_info_2"
+                    android:weightSum="2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_info_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/layout_info_middle"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_divider"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_info_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider_info_3"
+                    android:weightSum="2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_info_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/layout_info_bottom"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_divider"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider_info_4"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_info_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/layout_info_text"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_divider"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_info_logo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider_info_5"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <fragment
+        android:id="@+id/wahlrad_routen_grey_overlay"
+        android:name="com.htlhl.tourismus_hl.FragmentWahlradOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_wahlrad_routenwahl"
+        android:layout_alignParentTop="true" />
+
+    <FrameLayout
+        android:id="@+id/layout_wahlrad_routenwahl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <fragment
+            android:id="@+id/wahlrad_routen"
+            android:name="com.htlhl.tourismus_hl.FragmentWahlradRouten"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+    </FrameLayout>
+
+</RelativeLayout>
+

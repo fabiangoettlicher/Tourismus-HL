@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.htlhl.tourismus_hl.RoutenPoiList">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/AppBarLayoutRPL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_list_view_poi"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Routen_gelb">
+
+            <TextView
+                android:id="@+id/toolbar_title_routenwahl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/headerListView"
+                style="@style/Toolbartitle_RH" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_routen_poi_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@id/AppBarLayoutRPL"/>
+
+</RelativeLayout>

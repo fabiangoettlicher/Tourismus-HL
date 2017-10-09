@@ -1,0 +1,120 @@
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancle">přerušit</string>
+    <string name="stationcode_info">Prosím, zadejte kód z příslušné stanice, které lze nalézt na stanici palubě.</string>
+    <string name="stationcode">Entry kód stanice</string>
+    <string name="toStationsinfo">Informace stanice</string>
+    <string name="mp3nochnicht">Soubor MP3 dosud neexistuje -> brzy následuje</string>
+    <string name="projecthomepage">homepage projektu: www.it-tourismus.at</string>
+    <string name="laedt">Data ke stažení!</string>
+    <string name="alert_ja">Ano</string>
+    <string name="alert_nein">Ne</string>
+    <string name="down_again">Chcete restartovat stahování?</string>
+    <string name="feedback">Děkujeme vám za vaši reakci: hl-feedback@it-tourismus.at</string>
+    <string name="support">Podpora: hl-support@it-tourismus.at</string>
+    <string name="explanationLocation">Aplikace vyžaduje informace o Vaší poloze, aby Vás mohla navigovat a správně vypočítat vzdálenosti</string>
+    <string name="attention">POZOR!</string>
+    <string name="attentionEnglisch">WARNING!</string>
+    <string name="explanationNever">Chcete-li aplikaci přeci jen umožnit přístup, jděte do Nastavení -> Aplikace -> Tourismus HL -> Oprávnění</string>
+    <string name="explanationList">Pro zobrazení lišty musíte aplikaci umožnit přístup k informacím o Vaší poloze</string>
+    <string name="waitForDownload">App is downloading data! \n This could take some minutes the first time the App is started!</string>
+    <string name="waitDownloadingBackground">Data are downloaded in background, do not close the app and let it run in background until it is finished!\n\nStatus is shown in right top corner</string>
+    <string name="alertWIFI">The App is downloading data with a size greater than 100MB -> please connect to WIFI or allow to download with mobile data!</string>
+    <string name="toastWifiSetting">Please restart App after activating Wifi</string>
+    <string name="toastNoMp3">Soubor MP3 není k dispozici</string>
+    <string name="toastDownloadIncompleteMp3">Stažení souboru MP3 nebylo ještě dokončeno</string>
+    <string name="chooseLanguageAudio">Jazyk audionahrávky</string>
+    <string name="errorDownloadingData">Chyba!\nStisknutím tlačítka začít znovu stáhnout ke stažení stav!</string>
+    <string name="datenErfolgreich">Tyto údaje byly úspěšně aktualizovány!</string>
+    <string name="errorNoInternet">Ne Internet! Prosím spusťte aplikaci znovu i na internetu!</string>
+    <string name="waitkmldownload">Trasa se zobrazí po skončení stahování!</string>
+    <string name="imgBtnLocation">Tlačítko pod sdílet umístění</string>
+    <string name="errorETWrongStationNumber">Byl zadán kód chybné zastávky!</string>
+    <string name="Kellergassenlauf">Běh sklepní uličkou</string>
+    <string name="app_name">Tourismus HL</string>
+    <string name="title_activity_impressum">impressum</string>
+    <string name="title_activity_infoscreen_kg">infoscreen_kg</string>
+    <string name="title_activity_kellergasse_haupt">kellergasse_haupt</string>
+    <string name="routeninfo">Informace o trase:</string>
+    <string name="ImgBtnPOI">ShowHidePOI</string>
+    <string name="headerListView">Zajímavá místa</string>
+    <string name="lvplogo">Logo des POI</string>
+    <string name="lvpbtnweiter">Btn Weiter des POI</string>
+    <string name="info_POI">Informance</string>
+    <string name="chooseRouteImgView">chooseRouteArrow</string>
+    <string name="transparentImage">transparentImgCatchMotions</string>
+    <string name="ImgBtnFullscreen">ImgBtnFullscreen</string>
+    <string name="ContentCheckWahlrad">Auswahlhacken</string>
+    <string name="chooseLanguage">Jazyk</string>
+    <string name="kontakt">Kontakt</string>
+    <string name="oeffnungszeit">Otvírací doba</string>
+    <string name="tel">Tel.:</string>
+    <string name="email">Email:</string>
+    <string name="naechsteroute">Nächste Route:</string>
+
+    <string-array name="Tutorial">
+        <item>Dále</item>
+        <item>Hotovo</item>
+        <item>Nápověda</item>
+        <item>Spustit nápovědu znovu</item>
+        <item>Zajímavá místa</item>
+        <item>Přehledný seznam všech zajímavých míst</item>
+        <item>Ukázat/Skrýt zajímavá místa</item>
+        <item>Volba trasy</item>
+        <item>Zvolit trasu</item>
+        <item>Zobrazení na celou obrazovku</item>
+        <item>Aktivovat/Deaktivovat zobrazení na celou obrazovku</item>
+        <item>Volba zastávky</item>
+        <item>Zvolit zastávku</item>
+        <item>Navigovat</item>
+        <item>Naviguji ke zvolené zastávce</item>
+        <item>Informace o stanici</item>
+        <item>Zobrazovat příslušné informace o stanici k a přehrát zvukový soubor</item>
+        <item>Informace o zastávce</item>
+        <item>Po zadání kódu zastávky stiskněte zde a dostanete se na informační stránku</item>
+        <item>Vaše poloha</item>
+        <item>Ukazuji Vaši aktuální polohu na mapě a naviguji podle trasy</item>
+    </string-array>
+
+
+    <string name="ButtonImpressum">Impresum</string>
+    <string name="ButtonKellergasse">Stezka sklepní kočky</string>
+    <string name="ButtonRoute">Trasy Hollabrunn</string>
+    <string name="btnHome">Home</string>
+    <string name="ImgBtnArrow">ImgBtnArrow</string>
+    <string name="ImgBtnPLay">ImgBtnPlay</string>
+    <string name="ImgBtnInfo">ImgBtnInfo</string>
+    <string name="btnNextStation">Příští zastávka</string>
+    <string name="Audiodatei">Přehrát audiosoubor:</string>
+    <string name="btnWanderwege">Turistické trasy</string>
+    <string name="btnLaufstrecke">Běh sklepní uličkou</string>
+    <string name="btnRadwege">Cyklistické trasy</string>
+    <string name="btnKG_info">K trase</string>
+
+    <string name="HomeActivity">Turismus Hollabrunn</string>
+    <string name="ImpressumActivity">Impresum</string>
+    <string name="KellergassenActivity">Stezka sklepní kočky</string>
+    <string name="title_activity_station">station</string>
+    <string name="title_activity_infoscreen_routen">Trasy Hollabrunn</string>
+
+    <string name="naechste_station">Příští zastávka:</string>
+    <string name="stationsNR">Kód zastávky...</string>
+    <string name="errorShortStationNr">Kód zastávky je 5-místný!!</string>
+    <string name="errorFalseStationNr">Neplatný kód zastávky!</string>
+    <string name="contentStationBild">Stationsbild</string>
+    <string name="contentLanguageImgBtn">Languageflag</string>
+    <string name="contentPlayImgBtn">Playbutton</string>
+    <string name="stationsnummer_eingeben">Zadejte prosím kód zastávky!</string>
+
+
+    <string name="title_activity_routenwahl">routenwahl</string>
+    <string name="title_activity_routen_navi">routen_navi</string>
+    <string name="title_activity_routen_haupt">routen_haupt</string>
+    <string name="title_activity_list_view_poi">list_view_poi</string>
+    <string name="title_activity_poi_information">poi_information</string>
+    <string name="title_activity_fullscreen_map">fullscreen_map</string>
+    <string name="title_activity_routen_haupt__lauf">RoutenHaupt_Lauf</string>
+
+    <string name="title_activity_routen_map_fullscreen">RoutenMapFullscreen</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>

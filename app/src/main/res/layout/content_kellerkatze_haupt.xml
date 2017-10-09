@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.htlhl.tourismus_hl.KellerkatzeHaupt"
+    tools:showIn="@layout/activity_kellerkatze_haupt">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:weightSum="1.0"
+        android:id="@+id/Top_Layout_KG">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="match_parent"
+            android:id="@+id/tv_top_layout_kg">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/roundtextview"
+                android:id="@+id/tvStationKG" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:id="@+id/btn_top_layout_kg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_chevron_right_black_18dp"
+                android:id="@+id/ImgViewChooseStation" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_above_map_kg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/Top_Layout_KG"
+        android:background="@color/black" />
+
+    <FrameLayout
+        android:id="@+id/layout_map_kg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/divider_above_map_kg"
+        android:layout_above="@+id/divider_below_map_kg">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:id="@+id/map_KG"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:contentDescription="@string/ImgBtnPOI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ImgBtnNaviKG"
+                android:src="@drawable/btn_navigate"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@null" />
+        </fragment>
+    </FrameLayout>
+
+    <View
+        android:id="@+id/divider_below_map_kg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/bottom_layout_kg"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:weightSum="1.0"
+        android:id="@+id/bottom_layout_kg">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="match_parent"
+            android:id="@+id/tv_bottom_layout_kg">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:text="@string/toStationsinfo"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/roundtextview"
+                android:id="@+id/tvStationsinfo" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:id="@+id/btn_bottom_layout_kg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_chevron_right_black_18dp"
+                android:id="@+id/ImgViewToStationsinfo" />
+        </FrameLayout>
+
+        <!--<FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="match_parent"
+            android:id="@+id/tv_layout_kg">
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:textSize="15sp"
+                android:id="@+id/etStationNr"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/roundtextview"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:maxLength="5"
+                android:hint="@string/stationsNR"
+                android:cursorVisible="false"
+                android:textColorHint="@color/black" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/ImgBtnArrow"
+                android:layout_height="wrap_content"
+                android:id="@+id/ImgBtnWeiterNR"
+                android:layout_gravity="start|center_vertical"
+                android:background="@null"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"/>-->
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/wahlrad_station"
+        android:name="com.htlhl.tourismus_hl.FragmentWahlradStation"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true" />
+    <fragment
+        android:id="@+id/wahlrad_station_grey_overlay"
+        android:name="com.htlhl.tourismus_hl.FragmentWahlradOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/wahlrad_station" />
+
+
+</RelativeLayout>

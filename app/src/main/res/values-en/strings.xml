@@ -1,0 +1,120 @@
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancle">Cancle</string>
+    <string name="stationcode_info">Please enter the code of the respective station, which can be found on the station sign.</string>
+    <string name="stationcode">Stationcode input</string>
+    <string name="toStationsinfo">To the station information</string>
+    <string name="mp3nochnicht">MP3 file is not available yet -> will follow soon</string>
+    <string name="projecthomepage">Projecthomepage: www.it-tourismus.at</string>
+    <string name="laedt">Data is being downloaded!</string>
+    <string name="alert_ja">Yes</string>
+    <string name="alert_nein">No</string>
+    <string name="down_again">Do you want to restart the download?</string>
+    <string name="feedback">We ask for feedback: hl-feedback@it-tourismus.at</string>
+    <string name="support">Support: hl-support@it-tourismus.at</string>
+    <string name="explanationLocation">Please allow the app to verify your current location, in order to navigate and to calculate the distances</string>
+    <string name="attention">WARNING!</string>
+    <string name="attentionEnglisch">WARNING!</string>
+    <string name="explanationNever">To allow the app access, please adjust your settings to > App > Tourismus HL -> permissions</string>
+    <string name="explanationList">Please allow the app to verify your current location in order to show the list</string>
+    <string name="waitForDownload">App is downloading data!\nThis could take some minutes the first time the App is started!</string>
+    <string name="waitDownloadingBackground">Data are downloaded in background, do not close the app and let it run in background until it is finished!\n\nStatus is shown in right top corner</string>
+    <string name="alertWIFI">The App is downloading data with a size greater than 100MB -> please connect to WIFI or allow to download with mobile data!</string>
+    <string name="toastWifiSetting">Please restart App after activating Wifi</string>
+    <string name="toastNoMp3">Mp3 file is missing</string>
+    <string name="toastDownloadIncompleteMp3">Downloading of the Mp3 file has not finished</string>
+    <string name="chooseLanguageAudio">Audio file language</string>
+    <string name="errorDownloadingData">Error!\nPress on the downloadstatus in order to start downloading again</string>
+    <string name="datenErfolgreich">Data has been successfully updated!</string>
+    <string name="errorNoInternet">No Internet! Please restart the app and turn on the Internet!</string>
+    <string name="waitkmldownload">Trail will be displayed when their download is finished!</string>
+    <string name="imgBtnLocation">Button to enable the Location</string>
+    <string name="errorETWrongStationNumber">Wrong code for this station!</string>
+    <string name="Kellergassenlauf">Wine cellar lane’s race</string>
+    <string name="app_name">Tourismus HL</string>
+    <string name="title_activity_impressum">Impressum</string>
+    <string name="title_activity_infoscreen_kg">infoscreen_kg</string>
+    <string name="title_activity_kellergasse_haupt">kellergasse_haupt</string>
+    <string name="routeninfo">Information on the tour:</string>
+    <string name="ImgBtnPOI">ShowHidePOI</string>
+    <string name="headerListView">Intersting places</string>
+    <string name="lvplogo">Logo des POI</string>
+    <string name="lvpbtnweiter">Btn Weiter des POI</string>
+    <string name="info_POI">Information</string>
+    <string name="chooseRouteImgView">chooseRouteArrow</string>
+    <string name="transparentImage">transparentImgCatchMotions</string>
+    <string name="ImgBtnFullscreen">ImgBtnFullscreen</string>
+    <string name="ContentCheckWahlrad">Auswahlhacken</string>
+    <string name="chooseLanguage">Language</string>
+    <string name="kontakt">Contact</string>
+    <string name="oeffnungszeit">Opening hours</string>
+    <string name="tel">tel.:</string>
+    <string name="email">email:</string>
+    <string name="naechsteroute">Next trail:</string>
+
+    <string-array name="Tutorial">
+        <item>Continue</item>
+        <item>Finish</item>
+        <item>Tutorial</item>
+        <item>Start the tutorial</item>
+        <item>Interesting places</item>
+        <item>Listview of all interesting locations</item>
+        <item>Show/hide interesting places</item>
+        <item>Choice of routes</item>
+        <item>Choose your route</item>
+        <item>Full screen</item>
+        <item>Activate/deactivate full screen</item>
+        <item>Choice of stations</item>
+        <item>Choose your station</item>
+        <item>Navigation</item>
+        <item>Navigate to the chosen station</item>
+        <item>Stationinformation</item>
+        <item>Display the respective station information and play the audio file</item>
+        <item>Station information</item>
+        <item>After entering the station code, press here to go to the information page</item>
+        <item>Your location</item>
+        <item>Show my actual location on the map and navigate along the route</item>
+    </string-array>
+
+
+    <string name="ButtonImpressum">Legal notice</string>
+    <string name="ButtonKellergasse">Cellar lanes cat trail</string>
+    <string name="ButtonRoute">Trails in Hollabrunn</string>
+    <string name="btnHome">Home</string>
+    <string name="ImgBtnArrow">ImgBtnArrow</string>
+    <string name="ImgBtnPLay">ImgBtnPlay</string>
+    <string name="ImgBtnInfo">ImgBtnInfo</string>
+    <string name="btnNextStation">Next station</string>
+    <string name="Audiodatei">Play the audio file:</string>
+    <string name="btnWanderwege">Hiking trails</string>
+    <string name="btnLaufstrecke">Wine cellar lane’s race</string>
+    <string name="btnRadwege">Cycle trails</string>
+    <string name="btnKG_info">To the trail</string>
+
+    <string name="HomeActivity">Tourism Hollabrunn</string>
+    <string name="ImpressumActivity">Legal notice</string>
+    <string name="KellergassenActivity">Cellar lane’s cat trail</string>
+    <string name="title_activity_station">Station</string>
+    <string name="title_activity_infoscreen_routen">Trails in Hollabrunn</string>
+
+    <string name="naechste_station">Next station:</string>
+    <string name="stationsNR">Station code...</string>
+    <string name="errorShortStationNr">Station code should be 5 digits!</string>
+    <string name="errorFalseStationNr">Not a valid station code!</string>
+    <string name="contentStationBild">Stationimage</string>
+    <string name="contentLanguageImgBtn">Languageflag</string>
+    <string name="contentPlayImgBtn">Playbutton</string>
+    <string name="stationsnummer_eingeben">Please enter the station code!</string>
+
+
+    <string name="title_activity_routenwahl">routenwahl</string>
+    <string name="title_activity_routen_navi">routen_navi</string>
+    <string name="title_activity_routen_haupt">routen_haupt</string>
+    <string name="title_activity_list_view_poi">list_view_poi</string>
+    <string name="title_activity_poi_information">poi_information</string>
+    <string name="title_activity_fullscreen_map">fullscreen_map</string>
+    <string name="title_activity_routen_haupt__lauf">RoutenHaupt_Lauf</string>
+
+    <string name="title_activity_routen_map_fullscreen">RoutenMapFullscreen</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>

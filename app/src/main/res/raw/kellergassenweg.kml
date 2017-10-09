@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Auf den Spuren der Kellerkatze</name>
+		<description><![CDATA[Ausgangspunkt Studentenheim/Sporthotel, <br>Dechant-Pfeifer-Straße 3<br>Markierung durch Pfeile, Länge ca. 4 km<br>http://www.kellerkatzenweg.at/<br><br>Der Rundweg durch die Sitzendorfer Kellergasse und den angrenzenden Naturraum ist gut beschildert und kann jederzeit kostenfrei und ohne Führung begangen werden. Er verläuft teilweise über unbefestigte Agrarwege und ist nur eingeschränkt barrierefrei. Die Gehzeit beträgt – abhängig von der Verweildauer bei einzelnen Stationen – zweieinhalb bis drei Stunden.<br><br>An 24 Stationen wird die gesamte Erlebniswelt dieser Kellergasse und ihre Entwicklung von ursprünglich landwirtschaftlicher Bestimmung hin zu einem privat und gesellschaftlich genutzten attraktiven Lebensraum geschildert. Leitmotiv ist die vom Hollabrunner Künstler Günter Stockinger geschaffene Kellerkatze, eine traditionelle Symbolfigur im Weinbau. <br><br>Drei Erlebnisstationen sind in Kellern eingerichtet, der Zutritt erfolgt mittels Chipkarte, die man gegen eine Kaution von 5 Euro beim Check-in an der Rezeption des Studentenheims/Sporthotels erhält. Hier kann man auch einen Picknickkorb mit einer zünftigen Kellerjause bestellen. Unterwegs sorgen mehrere Trinkwasser-Entnahmestellen und ein Automat mit Trockenfrüchten und kalten Getränken für Stärkung und Erfrischung. ]]></description>
+		<Folder>
+			<name>Auf den Spuren der Kellerkatze</name>
+			<Placemark>
+				<name>Path</name>
+				<styleUrl>#line-009D57-6-nodesc</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>16.06774,48.56157,233.0 16.06759,48.56158,235.0 16.06748,48.56158,236.0 16.06671,48.56163,244.0 16.06615,48.56164,244.0 16.06547,48.56164,241.0 16.06494,48.56161,239.0 16.0644,48.56161,241.0 16.06395,48.56164,243.0 16.06318,48.56179,252.0 16.06311,48.56179,253.0 16.06275,48.56181,255.0 16.06251,48.56181,260.0 16.06231,48.56179,261.0 16.06214,48.56183000000001,262.0 16.06162,48.56175,264.0 16.06136,48.56174,267.0 16.06117,48.56175,268.0 16.06096,48.56181,267.0 16.06092,48.56184,266.0 16.06079,48.56187,265.0 16.06048,48.5619,266.0 16.05873,48.56202,270.0 16.0577,48.56214,271.0 16.05612,48.56243,285.0 16.05531,48.56255,289.0 16.05513,48.56256,291.0 16.05512,48.56256,291.0 16.05476,48.56255,293.0 16.05449,48.5625,294.0 16.05326,48.56278,292.0 16.05239,48.56294,300.0 16.05194,48.56304,301.0 16.05166,48.56314,302.0 16.0515,48.56322,302.0 16.05112,48.56353,297.0 16.05065,48.56386,303.0 16.04992,48.56416,303.0 16.04913,48.56441,307.0 16.0484,48.56467,313.0 16.04749,48.56499000000001,319.0 16.0474,48.56487,316.0 16.04721,48.56427,315.0 16.047,48.56375,312.0 16.04671,48.56287,292.0 16.04671,48.56284,292.0 16.0467,48.56267,291.0 16.04675,48.56259,291.0 16.04626,48.56218,296.0 16.04602,48.56201,295.0 16.04564,48.56179,289.0 16.04551,48.56165,287.0 16.04531,48.56105000000001,277.0 16.04543,48.56097,278.0 16.04653,48.56064,279.0 16.04721,48.56045,279.0 16.04763,48.56035,279.0 16.04785,48.5605,280.0 16.04815,48.56075,288.0 16.04848,48.56095,296.0 16.0493,48.5612,292.0 16.04998,48.56137,289.0 16.05038,48.56142,285.0 16.0507,48.56146,283.0 16.05088,48.5615,283.0 16.05112,48.5615,282.0 16.05257,48.5614,284.0 16.05271,48.56127,281.0 16.05353,48.56126,283.0 16.05417,48.561310000000006,280.0 16.0542,48.56129,280.0 16.05429,48.56124,279.0 16.05439,48.56122,279.0 16.05551,48.56151,284.0 16.05563,48.56154,283.0 16.05593,48.56155,279.0 16.05599,48.56159,280.0 16.05613,48.56165,279.0 16.0564,48.56173,276.0 16.05709,48.56192,269.0 16.05771,48.56189,267.0 16.05814,48.56184,267.0 16.05852,48.56175,265.0 16.05941,48.56147,263.0 16.05971,48.5614,261.0 16.05988,48.56138,260.0 16.06046,48.5613,261.0 16.06055,48.5613,262.0 16.06073,48.56133,262.0 16.06088,48.5614,262.0 16.06091,48.56146,264.0 16.06109,48.56147,264.0 16.06177,48.56156,263.0 16.06254,48.56170000000001,259.0 16.06261,48.56175,258.0 16.06265,48.56181,257.0 16.06318,48.56179,252.0 16.06395,48.56164,243.0 16.0644,48.56161,241.0 16.06494,48.56161,239.0 16.06547,48.56164,241.0 16.06671,48.56163,244.0 16.06748,48.56158,236.0 16.06795,48.56156,232.0 16.06797,48.56156,232.0</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Style id='line-009D57-6-nodesc-normal'>
+			<LineStyle>
+				<color>ff579D00</color>
+				<width>6</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-009D57-6-nodesc-highlight'>
+			<LineStyle>
+				<color>ff579D00</color>
+				<width>9.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-009D57-6-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-009D57-6-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-009D57-6-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>

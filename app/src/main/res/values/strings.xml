@@ -1,0 +1,120 @@
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancle">Abbrechen</string>
+    <string name="stationcode_info">Bitte den Code der jeweiligen Station, welcher auf der Stationstafel zu finden ist, eingeben.</string>
+    <string name="stationcode">Stationscodeeingabe</string>
+    <string name="toStationsinfo">Zur Stationsinformation</string>
+    <string name="mp3nochnicht">MP3-Datei noch nicht vorhanden -> folgt bald</string>
+    <string name="projecthomepage">Projekthomepage: www.it-tourismus.at</string>
+    <string name="laedt">Daten werden gerade heruntergeladen!</string>
+    <string name="alert_ja">Ja</string>
+    <string name="alert_nein">Nein</string>
+    <string name="down_again">Wollen Sie den Download neu starten?</string>
+    <string name="feedback">Wir bitten um Feedback: hl-feedback@it-tourismus.at</string>
+    <string name="support">Support: hl-support@it-tourismus.at</string>
+    <string name="explanationLocation">Die App benötigt Zugriff auf Ihren Standort um Sie navigieren zu können und um Distanzen richtig zu berechnen</string>
+    <string name="attention">ACHTUNG!</string>
+    <string name="attentionEnglisch">WARNING!</string>
+    <string name="explanationNever">Um der App den Zugriff doch zu erlauben gehen sie in die Einstellungen -> App -> HL-Tourismus App -> Berechtigungen</string>
+    <string name="explanationList">Um die Liste anzuzeigen müssen Sie der App erlauben, auf Ihren Standort zuzugreifen</string>
+    <string name="waitForDownload">App is downloading data in background! \n This could take some minutes the first time the App is started!</string>
+    <string name="waitDownloadingBackground">Data are downloaded in background, do not close the app and let it run in background until it is finished!\n\nStatus is shown in right top corner</string>
+    <string name="alertWIFI">The App is downloading data with a size greater than 100MB -> please connect to WIFI or allow to download with mobile data!</string>
+    <string name="toastWifiSetting">Please restart App after activating Wifi</string>
+    <string name="toastNoMp3">Mp3-Datei nicht vorhanden</string>
+    <string name="toastDownloadIncompleteMp3">Download der MP3-Datein ist noch nicht abgeschlossen</string>
+    <string name="chooseLanguageAudio">Audiosprache</string>
+    <string name="errorDownloadingData">Fehler!\nAuf Downloadstatus drücken um Download erneut zu starten!</string>
+    <string name="datenErfolgreich">Daten wurden erfolgreich aktualisiert!</string>
+    <string name="errorNoInternet">Kein Internet! Bitte App neu starten und Internet einschalten!</string>
+    <string name="waitkmldownload">Route wird angezeigt wenn deren Download fertig ist!</string>
+    <string name="imgBtnLocation">Button zum enablen der Location</string>
+    <string name="errorETWrongStationNumber">Stationscode einer falschen Station wurde eingegeben!</string>
+    <string name="Kellergassenlauf">Kellergassenlauf</string>
+    <string name="app_name">Tourismus HL</string>
+    <string name="title_activity_impressum">impressum</string>
+    <string name="title_activity_infoscreen_kg">infoscreen_kg</string>
+    <string name="title_activity_kellergasse_haupt">kellergasse_haupt</string>
+    <string name="routeninfo">Informationen zur Route:</string>
+    <string name="ImgBtnPOI">ShowHidePOI</string>
+    <string name="headerListView">Interessante Orte</string>
+    <string name="lvplogo">Logo des POI</string>
+    <string name="lvpbtnweiter">Btn Weiter des POI</string>
+    <string name="info_POI">Information</string>
+    <string name="chooseRouteImgView">chooseRouteArrow</string>
+    <string name="transparentImage">transparentImgCatchMotions</string>
+    <string name="ImgBtnFullscreen">ImgBtnFullscreen</string>
+    <string name="ContentCheckWahlrad">Auswahlhacken</string>
+    <string name="chooseLanguage">Sprache</string>
+    <string name="kontakt">Kontakt</string>
+    <string name="oeffnungszeit">Öffnungszeiten</string>
+    <string name="tel">Tel.:</string>
+    <string name="email">Email:</string>
+    <string name="naechsteroute">Nächste Route:</string>
+
+    <string-array name="Tutorial">
+        <item>Weiter</item>
+        <item>Fertig</item>
+        <item>Tutorial</item>
+        <item>Starte das Tutorial neu</item>
+        <item>Interessante Orte</item>
+        <item>Listenansicht aller interessanten Orte</item>
+        <item>Interessante Orte ein-/ausblenden</item>
+        <item>Routenwahl</item>
+        <item>Route auswählen</item>
+        <item>Vollbild</item>
+        <item>Vollbild aktivieren/deaktivieren</item>
+        <item>Stationswahl</item>
+        <item>Station auswählen</item>
+        <item>Navigieren</item>
+        <item>Navigiere zu ausgewählter Station</item>
+        <item>Stationsinformation</item>
+        <item>Zeige die jeweilige Stationsinformation an und spiele die Audiodatei ab</item>
+        <item>Stationsinformation</item>
+        <item>Nach der Eingabe des Stationscodes hier drücken um zur Stations-Infoseite zu gelangen</item>
+        <item>Eigene Position</item>
+        <item>Zeige deine aktuelle Position auf der Karte und navigiere so entlang der Route</item>
+    </string-array>
+
+
+    <string name="ButtonImpressum">Impressum</string>
+    <string name="ButtonKellergasse">Kellerkatzenweg</string>
+    <string name="ButtonRoute">Routen Hollabrunn</string>
+    <string name="btnHome">Home</string>
+    <string name="ImgBtnArrow">ImgBtnArrow</string>
+    <string name="ImgBtnPLay">ImgBtnPlay</string>
+    <string name="ImgBtnInfo">ImgBtnInfo</string>
+    <string name="btnNextStation">Nächste Station</string>
+    <string name="Audiodatei">Audiodatei abspielen:</string>
+    <string name="btnWanderwege">Wanderwege</string>
+    <string name="btnLaufstrecke">Kellergassenlauf</string>
+    <string name="btnRadwege">Radwege</string>
+    <string name="btnKG_info">zur Route</string>
+
+    <string name="HomeActivity">Tourismus Hollabrunn</string>
+    <string name="ImpressumActivity">Impressum</string>
+    <string name="KellergassenActivity">Kellerkatzenweg</string>
+    <string name="title_activity_station">station</string>
+    <string name="title_activity_infoscreen_routen">Routen Hollabrunn</string>
+
+    <string name="naechste_station">Nächste Station:</string>
+    <string name="stationsNR">Stationscode...</string>
+    <string name="errorShortStationNr">Stationscode hat 5 Stellen!</string>
+    <string name="errorFalseStationNr">Ungültiger Stationscode!</string>
+    <string name="contentStationBild">Stationsbild</string>
+    <string name="contentLanguageImgBtn">Languageflag</string>
+    <string name="contentPlayImgBtn">Playbutton</string>
+    <string name="stationsnummer_eingeben">Bitte geben Sie den Stationscode ein!</string>
+
+
+    <string name="title_activity_routenwahl">routenwahl</string>
+    <string name="title_activity_routen_navi">routen_navi</string>
+    <string name="title_activity_routen_haupt">routen_haupt</string>
+    <string name="title_activity_list_view_poi">list_view_poi</string>
+    <string name="title_activity_poi_information">poi_information</string>
+    <string name="title_activity_fullscreen_map">fullscreen_map</string>
+    <string name="title_activity_routen_haupt__lauf">RoutenHaupt_Lauf</string>
+
+    <string name="title_activity_routen_map_fullscreen">RoutenMapFullscreen</string>
+    <string name="title_activity_splash">SplashActivity</string>>
+</resources>

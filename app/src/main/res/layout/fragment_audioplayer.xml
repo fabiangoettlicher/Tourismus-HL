@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/LayoutAudioplayerFragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/KG_green"
+    android:layout_marginBottom="10dp"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:id="@+id/LayoutAudioFragmentTop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:id="@+id/ImgBtnCloseFragment"
+            android:contentDescription="@string/contentPlayImgBtn" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LayoutAudioFragmentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/LayoutAudioFragmentTop">
+
+        <TextView
+            android:id="@+id/tvTitleAudioFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:textSize="25sp"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LayoutAudioFragmentMiddle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LayoutAudioFragmentTitle">
+
+        <SeekBar
+            android:id="@+id/SeekBar01"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutAudioFragmentBottom"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LayoutAudioFragmentMiddle"
+        android:weightSum="9"
+        android:baselineAligned="false">
+
+        <FrameLayout
+            android:id="@+id/LayoutFragmentRewind"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fast_rewind_white_36dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:id="@+id/ImgBtnRewindFragment"
+                android:contentDescription="@string/contentPlayImgBtn" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/LayoutAudioFragmentPlayPause"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:id="@+id/ImgBtnPlayPauseFragment"
+                android:contentDescription="@string/contentPlayImgBtn" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/LayoutFragmentForward"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fast_forward_white_36dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:id="@+id/ImgBtnForwardFragment"
+                android:contentDescription="@string/contentPlayImgBtn" />
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

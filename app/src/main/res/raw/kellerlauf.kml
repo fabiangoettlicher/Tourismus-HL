@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>4KellergassenLauf in Hollabrunn</name>
+		<description><![CDATA[Ausgangspunkt Studentenheim/Sporthotel, <br>Dechant-Pfeifer-Straße 3<br>Markierung durch Schilder und Pfeile, Länge ca. 10 km<br>http://www.4kellergassenlauf.at/<br><br>Die Route führt vom Start den gesamten Mitterweg entlang bis zum Gerichtsbergkellerplatz, von wo es leicht bergauf durch die Gerichtsberg-Kellergasse geht. Nach der Unterführung der Umfahrungsstraße durchläuft man die äußere Satzer Kellergasse bis zum Lumpenspitz, ehe man nach einem abwechslungsreichen Güterwegeabschnitt in die Suttenbrunner Kellergasse gelangt. Danach erreicht der Parcours beim Heidbirnbaum mit 317 m seine höchste Erhebung, um anschließend entlang von Feldern und Weingärten verschlungen hinunter auf den Winzerweg und diesen Richtung Stadt entlang zu führen. Schließlich wartet noch einmal ein steilerer Anstieg bis zur großen Reblaus-Spielfigur am Themenweg „Auf den Spuren der Kellerkatze“, dem man sodann folgt und durch die Sitzendorfer Kellergasse wieder zum Ausgangspunkt zurückkehrt.]]></description>
+		<Folder>
+			<name>Laufstrecke 10 km</name>
+			<Placemark>
+				<name>Laufstrecke 10 km</name>
+				<description><![CDATA[Die Route führt vom Start den gesamten Mitterweg entlang bis zum Gerichtsbergkellerplatz, von wo es leicht bergauf die Gerichtsbergkellergasse entlang geht. Nach der Unterführung der Umfahrungsstraße durchläuft man die äußere Satzer Kellergasse bis zum Lumpenspitz, ehe man nach einem abwechslungsreichen Güterwegeabschnitt in die Suttenbrunner Kellergasse gelangt. Danach erreicht der Parcours beim Haidbirnbaum mit 317 m seine höchste Erhebung, um anschließend entlang von Feldern und Weingärten verschlungen hinunter auf den Winzerweg und diesen Richtung Stadt entlang zu führen. Schließlich erwartet die LäuferInnen noch einmal ein steilerer Anstieg bis zur großen Reblaus-Spielfigur am Themenweg „Auf den Spuren der Kellerkatze“, dem man sodann folgt und durch die Sitzendorfer Kellergasse ins Ziel gelangt.]]></description>
+				<styleUrl>#line-F4B400-5</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>16.06848,48.561528,0.0 16.067685,48.561594,0.0 16.067615,48.562656000000004,0.0 16.068127,48.563171,0.0 16.069252,48.563631,0.0 16.069653,48.563583,0.0 16.070409,48.564483,0.0 16.071153,48.567033,0.0 16.071506,48.567379,0.0 16.072402,48.568003,0.0 16.072718,48.569429,0.0 16.069579,48.570137,0.0 16.065673,48.571346,0.0 16.065532,48.571595,0.0 16.065702,48.571964,0.0 16.065356,48.572123,0.0 16.065016,48.572967000000006,0.0 16.065424,48.573165,0.0 16.065494,48.573297,0.0 16.063119,48.572755,0.0 16.062775,48.572128,0.0 16.064505,48.571652,0.0 16.064875,48.571462,0.0 16.065047,48.571214,0.0 16.065204,48.568944,0.0 16.064975,48.568489,0.0 16.064057,48.569209,0.0 16.063472,48.569936,0.0 16.063083,48.570674,0.0 16.062843,48.57101300000001,0.0 16.062304,48.571324,0.0 16.061714,48.57166300000001,0.0 16.060912,48.572435,0.0 16.058531,48.573849,0.0 16.056504,48.576023,0.0 16.056338,48.576615,0.0 16.056468,48.57707,0.0 16.056896,48.57746900000001,0.0 16.057592,48.577724,0.0 16.057956,48.57811800000001,0.0 16.057805,48.579002,0.0 16.057874,48.579373,0.0 16.058585000000004,48.579911,0.0 16.059681,48.580813,0.0 16.057226,48.581891000000006,0.0 16.055545,48.580899,0.0 16.054066,48.581817,0.0 16.053364,48.58201,0.0 16.052847,48.58214,0.0 16.052583,48.582299,0.0 16.049793,48.580456,0.0 16.048504,48.57928900000001,0.0 16.048944,48.579287,0.0 16.0495,48.579144,0.0 16.050021,48.578747,0.0 16.05054,48.578578,0.0 16.050931,48.578484,0.0 16.051161,48.578299,0.0 16.051177,48.57785,0.0 16.051215,48.577362,0.0 16.051325,48.577172,0.0 16.052123,48.576892,0.0 16.05232,48.576715,0.0 16.052325,48.576307,0.0 16.054451,48.576264,0.0 16.054481,48.575935,0.0 16.054301,48.575383,0.0 16.053712,48.574812,0.0 16.053092,48.574097,0.0 16.054043,48.574018,0.0 16.055104,48.573505,0.0 16.055770000000003,48.57302,0.0 16.055746,48.572844,0.0 16.055407,48.572318,0.0 16.05515,48.571933,0.0 16.054107,48.571287,0.0 16.054017,48.571106,0.0 16.054016,48.570727,0.0 16.054457,48.569536,0.0 16.055544,48.567483,0.0 16.052151,48.56699,0.0 16.049424,48.567195,0.0 16.04923,48.56671,0.0 16.048482,48.565849,0.0 16.047645,48.564957,0.0 16.047502,48.564915,0.0 16.047231,48.564263,0.0 16.046899,48.563258,0.0 16.046832,48.562614,0.0 16.045656,48.56178,0.0 16.045373,48.561054,0.0 16.047579,48.560363,0.0 16.048308,48.56085,0.0 16.048733,48.561035,0.0 16.049864,48.561343,0.0 16.050941,48.561519,0.0 16.052557,48.56139600000001,0.0 16.052706,48.561223,0.0 16.054143,48.56128,0.0 16.054374,48.561198,0.0 16.055533,48.561513,0.0 16.055938,48.561556,0.0 16.057112,48.561911,0.0 16.058088,48.561881,0.0 16.058864,48.561991,0.0 16.061081,48.561833,0.0 16.062592,48.56183000000001,0.0 16.063226,48.561793,0.0 16.063828,48.561662,0.0 16.064733,48.561612,0.0 16.067401,48.561609,0.0 16.068477,48.561493,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Start / Ziel</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<Point>
+					<coordinates>16.0685241,48.5615208,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-503-009D57-nodesc-normal'>
+			<IconStyle>
+				<color>ff579D00</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-503-009D57-nodesc-highlight'>
+			<IconStyle>
+				<color>ff579D00</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-503-009D57-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-009D57-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-009D57-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-503-DB4436-nodesc-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-503-DB4436-nodesc-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-0000FF-3-normal'>
+			<LineStyle>
+				<color>ffFF0000</color>
+				<width>3</width>
+			</LineStyle>
+		</Style>
+		<Style id='line-0000FF-3-highlight'>
+			<LineStyle>
+				<color>ffFF0000</color>
+				<width>5.0</width>
+			</LineStyle>
+		</Style>
+		<StyleMap id='line-0000FF-3'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-0000FF-3-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-0000FF-3-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-009D57-3-normal'>
+			<LineStyle>
+				<color>ff579D00</color>
+				<width>3</width>
+			</LineStyle>
+		</Style>
+		<Style id='line-009D57-3-highlight'>
+			<LineStyle>
+				<color>ff579D00</color>
+				<width>5.0</width>
+			</LineStyle>
+		</Style>
+		<StyleMap id='line-009D57-3'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-009D57-3-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-009D57-3-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-F4B400-5-normal'>
+			<LineStyle>
+				<color>ff00B4F4</color>
+				<width>5</width>
+			</LineStyle>
+		</Style>
+		<Style id='line-F4B400-5-highlight'>
+			<LineStyle>
+				<color>ff00B4F4</color>
+				<width>8.0</width>
+			</LineStyle>
+		</Style>
+		<StyleMap id='line-F4B400-5'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-F4B400-5-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-F4B400-5-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-FF00FF-3-normal'>
+			<LineStyle>
+				<color>ffFF00FF</color>
+				<width>3</width>
+			</LineStyle>
+		</Style>
+		<Style id='line-FF00FF-3-highlight'>
+			<LineStyle>
+				<color>ffFF00FF</color>
+				<width>5.0</width>
+			</LineStyle>
+		</Style>
+		<StyleMap id='line-FF00FF-3'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-FF00FF-3-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-FF00FF-3-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.htlhl.tourismus_hl.MainActivity">
+    <item
+        android:id="@+id/menuDownload"
+        android:icon="@drawable/ic_done_green_18dp"
+        app:showAsAction="ifRoom"
+        android:title="Download">
+    </item>
+</menu>

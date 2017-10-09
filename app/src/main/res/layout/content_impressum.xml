@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.htlhl.tourismus_hl.MainActivity"
+    tools:showIn="@layout/activity_impressum">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/layout_logos_imp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="2">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/app_logo_v3" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/htl_logo" />
+        </LinearLayout>
+        
+        <ImageView
+            android:id="@+id/logoleiste_imp"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_below="@id/layout_logos_imp"
+            android:src="@drawable/logoleiste_imp"/>
+
+        <TextView
+            android:id="@+id/tvKontaktImp"
+            style="@style/Header2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logoleiste_imp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/divider_Kontakt"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvKontaktImp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/grey_divider" />
+
+        <LinearLayout
+            android:id="@+id/Layout_kontaktImp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider_Kontakt"
+            android:layout_marginBottom="10dp"
+            android:weightSum="5">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:paddingStart="30dp">
+
+                <TextView
+                    android:id="@+id/tvKontakt1Imp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvKontakt2Imp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvKontakt1Imp"
+                    android:layout_marginTop="10dp"
+                    android:autoLink="phone"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvKontakt3Imp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvKontakt2Imp"
+                    android:layout_marginTop="10dp"
+                    android:autoLink="email"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvKontakt4Imp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvKontakt3Imp"
+                    android:layout_marginTop="10dp"
+                    android:autoLink="web"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvKontakt5Imp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvKontakt4Imp"
+                    android:layout_marginTop="10dp"
+                    android:autoLink="all"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvKontakt6Imp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvKontakt5Imp"
+                    android:layout_marginTop="10dp"
+                    android:autoLink="web"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSupport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Layout_kontaktImp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/black"
+            android:linksClickable="true"
+            android:autoLink="email"
+            android:textSize="12sp"
+            android:text="@string/support"/>
+        <TextView
+            android:id="@+id/tvFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSupport"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:autoLink="email"
+            android:linksClickable="true"
+            android:text="@string/feedback"/>
+
+        <TextView
+            android:id="@+id/tvInfoImpressum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFeedback"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</ScrollView>

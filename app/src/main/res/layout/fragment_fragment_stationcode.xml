@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/border_code"
+    android:paddingTop="2dp"
+    tools:context="com.htlhl.tourismus_hl.FragmentStationcode">
+
+    <TextView
+        android:id="@+id/stationscode_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/KG_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:text="@string/stationcode" />
+
+    <TextView
+        android:id="@+id/stationscode_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:gravity="center_horizontal"
+        android:text="@string/stationcode_info" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:textSize="15sp"
+        android:id="@+id/etStationNr"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/border_code_et"
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:maxLength="5"
+        android:hint="@string/stationsNR"
+        android:cursorVisible="false"
+        android:textColorHint="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/btnCancleCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/cancle"/>
+        <Button
+            android:id="@+id/btnOKCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/ok"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+</LinearLayout>
