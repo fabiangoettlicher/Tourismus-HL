@@ -3,8 +3,6 @@ package com.htlhl.tourismus_hl;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -23,6 +21,8 @@ import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class FragmentAudioplayer extends Fragment {
     private Boolean isForwardBtnLongPressed = false, isRewindBtnLongPressed = false;
     private String uriGer, uriCze, uriBri;
     private Uri uri;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
     private FloatingActionButton fabItem1, fabItem2;
     private FloatingActionMenu fabMenu;
 
@@ -69,9 +69,9 @@ public class FragmentAudioplayer extends Fragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(getActivity().getApplicationContext());
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(getActivity().getApplicationContext());
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(getActivity().getApplicationContext());
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(getActivity().getApplicationContext());
         }
         getURLs();
         fm = getFragmentManager();
@@ -374,11 +374,11 @@ public class FragmentAudioplayer extends Fragment {
                 }
             }
         }
-        for (int i = 0; i < dbPoiXmlContainerList.size(); i++) {
-            if (dbPoiXmlContainerList.get(i).getPoiName_().equals(loggedStation)) {
-                uriGer = dbPoiXmlContainerList.get(i).getPathMP3DE_();
-                uriBri = dbPoiXmlContainerList.get(i).getPathMP3EN_();
-                uriCze = dbPoiXmlContainerList.get(i).getPathMP3CZ_();
+        for (int i = 0; i < PointOfInterestList.size(); i++) {
+            if (PointOfInterestList.get(i).getPoiName_().equals(loggedStation)) {
+                uriGer = PointOfInterestList.get(i).getPathMP3DE_();
+                uriBri = PointOfInterestList.get(i).getPathMP3EN_();
+                uriCze = PointOfInterestList.get(i).getPathMP3CZ_();
             }
         }
     }

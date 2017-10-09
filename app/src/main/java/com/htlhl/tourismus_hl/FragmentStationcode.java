@@ -2,11 +2,8 @@ package com.htlhl.tourismus_hl;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +16,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.htlhl.tourismus_hl.KellerkatzeHaupt.etStationNr;
 import static com.htlhl.tourismus_hl.KellerkatzeHaupt.stationNamen;
 import static com.htlhl.tourismus_hl.KellerkatzeHaupt.stringEtStationNr;
 import static com.htlhl.tourismus_hl.KellerkatzeStation.correct;
@@ -34,7 +33,7 @@ public class FragmentStationcode extends android.app.Fragment implements View.On
 
     private android.app.FragmentManager fm;
     private List<String> stationNumbers;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
     private List<Integer> stationIDs;
     private final Handler handler = new Handler();
     private EditText etStationNr;
@@ -59,9 +58,9 @@ public class FragmentStationcode extends android.app.Fragment implements View.On
 
         stationNumbers = new ArrayList<>();
         stationIDs = new ArrayList<>();
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(getActivity());
-        if (dbPoiXmlContainerList == null) {
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(getActivity());
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(getActivity());
+        if (PointOfInterestList == null) {
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(getActivity());
         }
         getData();
 
@@ -191,16 +190,16 @@ public class FragmentStationcode extends android.app.Fragment implements View.On
     }
 
     public void getData(){
-        for (int i = 0; i < dbPoiXmlContainerList.size(); i++) {
-            if (dbPoiXmlContainerList.get(i).getPoiKatID_() == 9) { //KatID 9 = Station
-                stationIDs.add(dbPoiXmlContainerList.get(i).getPoiID_());
+        for (int i = 0; i < PointOfInterestList.size(); i++) {
+            if (PointOfInterestList.get(i).getPoiKatID_() == 9) { //KatID 9 = Station
+                stationIDs.add(PointOfInterestList.get(i).getPoiID_());
             }
         }
         Collections.sort(stationIDs);
         for (int x = 0; x < stationIDs.size(); x++) {
-            for (int y = 0; y < dbPoiXmlContainerList.size(); y++) {
-                if (stationIDs.get(x) == dbPoiXmlContainerList.get(y).getPoiID_()) {
-                    stationNumbers.add(dbPoiXmlContainerList.get(y).getPoiStat_());
+            for (int y = 0; y < PointOfInterestList.size(); y++) {
+                if (stationIDs.get(x) == PointOfInterestList.get(y).getPoiID_()) {
+                    stationNumbers.add(PointOfInterestList.get(y).getPoiStat_());
                 }
             }
         }

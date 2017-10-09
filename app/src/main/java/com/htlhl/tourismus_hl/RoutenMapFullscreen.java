@@ -37,6 +37,10 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
+import com.htlhl.tourismus_hl.Data.Model.RoutenPointOfInterestLinking;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -61,9 +65,9 @@ public class RoutenMapFullscreen extends AppCompatActivity implements OnMapReady
     private final Handler mHideHandler = new Handler();
     private ImageButton imgBtnPoi, imgBtnLocation;
     private String loggedRoute, pathKml;
-    private List<DbRoutenXmlContainer> dbRoutenXmlContainerList;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
-    private List<DbRoutenPoiXmlContainer> dbRoutenPoiXmlContainerList;
+    private List<Routen> routenList;
+    private List<PointOfInterest> PointOfInterestList;
+    private List<RoutenPointOfInterestLinking> routenPointOfInterestLinkingList;
     private View mContentView;
     private GoogleMap mapFullscreen = null;
     private MapFragment mapFragment;
@@ -235,16 +239,16 @@ public class RoutenMapFullscreen extends AppCompatActivity implements OnMapReady
         });
 
         loggedRoute = RoutenHaupt.tvRouten.getText().toString();
-        dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(this);
-        if(dbRoutenXmlContainerList==null || dbPoiXmlContainerList==null || dbRoutenPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
-            dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListKml(this);
-            if(dbRoutenXmlContainerList == null){
-                dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListText(this);
+        routenList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(this);
+        if(routenList ==null || PointOfInterestList ==null || routenPointOfInterestLinkingList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+            routenList = ReadDataFromFile.getDbRoutenXmlContainerListKml(this);
+            if(routenList == null){
+                routenList = ReadDataFromFile.getDbRoutenXmlContainerListText(this);
             }
-            dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerListText(this);
+            routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerListText(this);
         }
         getData();
     }
@@ -344,15 +348,15 @@ public class RoutenMapFullscreen extends AppCompatActivity implements OnMapReady
 
     private void getData() {
         routenPoiIDsPoi.clear();
-        for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-            if (dbRoutenXmlContainerList.get(i).getRoutenName_().equals(loggedRoute)) {
-                pathKml = dbRoutenXmlContainerList.get(i).getPathKml_();
-                routenID = dbRoutenXmlContainerList.get(i).getRoutenID_();
+        for (int i = 0; i < routenList.size(); i++) {
+            if (routenList.get(i).getRoutenName_().equals(loggedRoute)) {
+                pathKml = routenList.get(i).getPathKml_();
+                routenID = routenList.get(i).getRoutenID_();
             }
         }
-        for (int i = 0; i < dbRoutenPoiXmlContainerList.size(); i++) {
-            if (routenID == dbRoutenPoiXmlContainerList.get(i).getRoutenpoiIDrouten_()) {
-                routenPoiIDsPoi.add(dbRoutenPoiXmlContainerList.get(i).getRoutenpoiIDpoi_());
+        for (int i = 0; i < routenPointOfInterestLinkingList.size(); i++) {
+            if (routenID == routenPointOfInterestLinkingList.get(i).getRoutenpoiIDrouten_()) {
+                routenPoiIDsPoi.add(routenPointOfInterestLinkingList.get(i).getRoutenpoiIDpoi_());
             }
         }
         poiLats.clear();
@@ -360,14 +364,14 @@ public class RoutenMapFullscreen extends AppCompatActivity implements OnMapReady
         poiNamen.clear();
         poiKatIDs.clear();
         poiIDs.clear();
-        for (int y = 0; y < dbPoiXmlContainerList.size(); y++) {
+        for (int y = 0; y < PointOfInterestList.size(); y++) {
             for (int z = 0; z < routenPoiIDsPoi.size(); z++) { //vergleiche jeden Poi mit jeder ID
-                if (dbPoiXmlContainerList.get(y).getPoiID_() == routenPoiIDsPoi.get(z)) { //wenn übereinstimmt
-                    poiLats.add(dbPoiXmlContainerList.get(y).getPoiLat_());
-                    poiLngs.add(dbPoiXmlContainerList.get(y).getPoiLng_());
-                    poiNamen.add(dbPoiXmlContainerList.get(y).getPoiName_());
-                    poiKatIDs.add(dbPoiXmlContainerList.get(y).getPoiKatID_());
-                    poiIDs.add(dbPoiXmlContainerList.get(y).getPoiID_());
+                if (PointOfInterestList.get(y).getPoiID_() == routenPoiIDsPoi.get(z)) { //wenn übereinstimmt
+                    poiLats.add(PointOfInterestList.get(y).getPoiLat_());
+                    poiLngs.add(PointOfInterestList.get(y).getPoiLng_());
+                    poiNamen.add(PointOfInterestList.get(y).getPoiName_());
+                    poiKatIDs.add(PointOfInterestList.get(y).getPoiKatID_());
+                    poiIDs.add(PointOfInterestList.get(y).getPoiID_());
                 }
             }
         }

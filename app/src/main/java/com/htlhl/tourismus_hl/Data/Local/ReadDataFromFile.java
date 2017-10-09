@@ -1,4 +1,4 @@
-package com.htlhl.tourismus_hl;
+package com.htlhl.tourismus_hl.Data.Local;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,6 +6,9 @@ import android.graphics.BitmapFactory;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.maps.android.kml.KmlLayer;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
+import com.htlhl.tourismus_hl.Data.Model.RoutenPointOfInterestLinking;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -17,7 +20,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.util.List;
 
-class ReadDataFromFile {
+public class ReadDataFromFile {
     private static final String POI_FILENAME = "PoiFile.srl";
     private static final String ROUTEN_FILENAME = "RoutenFile.srl";
     private static final String ROUTENPOI_FILENAME = "RoutenPoiFile.srl";
@@ -27,105 +30,105 @@ class ReadDataFromFile {
     private static final String ROUTEN_FILENAME_KML = "RoutenFileKml.srl";
 
 
-    static List<DbPoiXmlContainer> getDbPoiXmlContainerList(Context context) {
-        List<DbPoiXmlContainer> dbPoiXmlContainerList = null;
+    public static List<PointOfInterest> getDbPoiXmlContainerList(Context context) {
+        List<PointOfInterest> PointOfInterestList = null;
         try {
             FileInputStream fis = context.openFileInput(POI_FILENAME);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbPoiXmlContainerList = (List<DbPoiXmlContainer>) is.readObject();
+            PointOfInterestList = (List<PointOfInterest>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbPoiXmlContainerList;
+        return PointOfInterestList;
     }
 
-    static List<DbPoiXmlContainer> getDbPoiXmlContainerListText(Context context) {
-        List<DbPoiXmlContainer> dbPoiXmlContainerList = null;
+    public static List<PointOfInterest> getDbPoiXmlContainerListText(Context context) {
+        List<PointOfInterest> PointOfInterestList = null;
         try {
             FileInputStream fis = context.openFileInput(POI_FILENAME_TEXT);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbPoiXmlContainerList = (List<DbPoiXmlContainer>) is.readObject();
+            PointOfInterestList = (List<PointOfInterest>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbPoiXmlContainerList;
+        return PointOfInterestList;
     }
 
-    static List<DbRoutenXmlContainer> getDbRoutenXmlContainerList(Context context) {
-        List<DbRoutenXmlContainer> dbRoutenXmlContainerList = null;
+    public static List<Routen> getDbRoutenXmlContainerList(Context context) {
+        List<Routen> routenList = null;
         try {
             FileInputStream fis = context.openFileInput(ROUTEN_FILENAME);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbRoutenXmlContainerList = (List<DbRoutenXmlContainer>) is.readObject();
+            routenList = (List<Routen>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbRoutenXmlContainerList;
+        return routenList;
     }
 
-    static List<DbRoutenXmlContainer> getDbRoutenXmlContainerListKml(Context context) {
-        List<DbRoutenXmlContainer> dbRoutenXmlContainerList = null;
+    public static List<Routen> getDbRoutenXmlContainerListKml(Context context) {
+        List<Routen> routenList = null;
         try {
             FileInputStream fis = context.openFileInput(ROUTEN_FILENAME_KML);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbRoutenXmlContainerList = (List<DbRoutenXmlContainer>) is.readObject();
+            routenList = (List<Routen>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbRoutenXmlContainerList;
+        return routenList;
     }
 
-    static List<DbRoutenXmlContainer> getDbRoutenXmlContainerListText(Context context) {
-        List<DbRoutenXmlContainer> dbRoutenXmlContainerList = null;
+    public static List<Routen> getDbRoutenXmlContainerListText(Context context) {
+        List<Routen> routenList = null;
         try {
             FileInputStream fis = context.openFileInput(ROUTEN_FILENAME_TEXT);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbRoutenXmlContainerList = (List<DbRoutenXmlContainer>) is.readObject();
+            routenList = (List<Routen>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbRoutenXmlContainerList;
+        return routenList;
     }
 
-    static List<DbRoutenPoiXmlContainer> getDbRoutenPoiXmlContainerList(Context context) {
-        List<DbRoutenPoiXmlContainer> dbRoutenPoiXmlContainerList = null;
+    public static List<RoutenPointOfInterestLinking> getDbRoutenPoiXmlContainerList(Context context) {
+        List<RoutenPointOfInterestLinking> routenPointOfInterestLinkingList = null;
         try {
             FileInputStream fis = context.openFileInput(ROUTENPOI_FILENAME);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbRoutenPoiXmlContainerList = (List<DbRoutenPoiXmlContainer>) is.readObject();
+            routenPointOfInterestLinkingList = (List<RoutenPointOfInterestLinking>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbRoutenPoiXmlContainerList;
+        return routenPointOfInterestLinkingList;
     }
 
-    static List<DbRoutenPoiXmlContainer> getDbRoutenPoiXmlContainerListText(Context context) {
-        List<DbRoutenPoiXmlContainer> dbRoutenPoiXmlContainerList = null;
+    public static List<RoutenPointOfInterestLinking> getDbRoutenPoiXmlContainerListText(Context context) {
+        List<RoutenPointOfInterestLinking> routenPointOfInterestLinkingList = null;
         try {
             FileInputStream fis = context.openFileInput(ROUTENPOI_FILENAME_TEXT);
             ObjectInputStream is = new ObjectInputStream(fis);
-            dbRoutenPoiXmlContainerList = (List<DbRoutenPoiXmlContainer>) is.readObject();
+            routenPointOfInterestLinkingList = (List<RoutenPointOfInterestLinking>) is.readObject();
             is.close();
             fis.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return dbRoutenPoiXmlContainerList;
+        return routenPointOfInterestLinkingList;
     }
 
-    static Bitmap getBitmap(String fullpath) {
+    public static Bitmap getBitmap(String fullpath) {
         Bitmap bitmap = null;
         if (fullpath != null) {
             String[] splitfullpath = fullpath.split("/");
@@ -147,7 +150,7 @@ class ReadDataFromFile {
         return bitmap;
     }
 
-    static void getKml(String fullpath, GoogleMap map, Context context) throws IOException {
+    public static void getKml(String fullpath, GoogleMap map, Context context) throws IOException {
         InputStream is = null;
         KmlLayer layer = null;
         if (fullpath != null) {

@@ -1,7 +1,9 @@
-package com.htlhl.tourismus_hl;
+package com.htlhl.tourismus_hl.Data.XmlParser;
 
 
 import android.util.Xml;
+
+import com.htlhl.tourismus_hl.Data.Model.Routen;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -16,7 +18,7 @@ public class DbRoutenXmlParser {
     // We don't use namespaces
     private static final String ns = null;
 
-    List parse(InputStream in) throws XmlPullParserException, IOException {
+    public List parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -53,7 +55,7 @@ public class DbRoutenXmlParser {
 
     // Parses the contents of an entry. If it encounters a poiName, poiLng, or poiLat tag, hands them off
 // to their respective "read" methods for processing. Otherwise, skips the tag.
-    private DbRoutenXmlContainer readRouten(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private Routen readRouten(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "routen");
         String routenName_=null, routenKml_=null, routenLink_=null, routenBild1_=null, routenBild2_=null, routenBild3_=null;
         String routenInfo1DE_=null, routenInfo2DE_=null, routenInfo3DE_=null, routenInfo4DE_=null, routenInfo5DE_=null, routenInfo6DE_=null, routenInfo7DE_=null;
@@ -160,7 +162,7 @@ public class DbRoutenXmlParser {
                     break;
             }
         }
-        return new DbRoutenXmlContainer(routenName_, routenKml_, routenLink_, routenBild1_, routenBild2_, routenBild3_,
+        return new Routen(routenName_, routenKml_, routenLink_, routenBild1_, routenBild2_, routenBild3_,
                 routenInfo1DE_, routenInfo2DE_, routenInfo3DE_, routenInfo4DE_, routenInfo5DE_, routenInfo6DE_, routenInfo7DE_,
                 routenInfo1EN_, routenInfo2EN_, routenInfo3EN_, routenInfo4EN_, routenInfo5EN_, routenInfo6EN_, routenInfo7EN_,
                 routenInfo1CZ_, routenInfo2CZ_, routenInfo3CZ_, routenInfo4CZ_, routenInfo5CZ_, routenInfo6CZ_, routenInfo7CZ_,

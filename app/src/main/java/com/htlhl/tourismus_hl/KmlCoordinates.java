@@ -3,10 +3,13 @@ package com.htlhl.tourismus_hl;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
+import com.htlhl.tourismus_hl.Data.Model.RoutenPointOfInterestLinking;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,9 +32,9 @@ public class KmlCoordinates extends AppCompatActivity{
     public static boolean flagNoKml = false;
     public static LatLng startpoint, endpoint, startendpoint;
     private LatLngBounds bounds;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
-    private List<DbRoutenPoiXmlContainer> dbRoutenPoiXmlContainerList;
-    private List<DbRoutenXmlContainer> dbRoutenXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
+    private List<RoutenPointOfInterestLinking> routenPointOfInterestLinkingList;
+    private List<Routen> routenList;
     private List<String> poiLats;
     private List<String> poiLngs;
     private List<Integer> routenPoiIDsPoi;
@@ -43,13 +46,13 @@ public class KmlCoordinates extends AppCompatActivity{
         poiLats = new ArrayList<>();
         poiLngs = new ArrayList<>();
         routenPoiIDsPoi = new ArrayList<>();
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(context);
-        dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(context);
-        dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(context);
-        if(dbRoutenXmlContainerList==null || dbPoiXmlContainerList==null || dbRoutenPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(context);
-            dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListText(context);
-            dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerListText(context);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(context);
+        routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(context);
+        routenList = ReadDataFromFile.getDbRoutenXmlContainerList(context);
+        if(routenList ==null || PointOfInterestList ==null || routenPointOfInterestLinkingList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(context);
+            routenList = ReadDataFromFile.getDbRoutenXmlContainerListText(context);
+            routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerListText(context);
         }
 
         getLatLngPois(tvRouten);
@@ -193,23 +196,23 @@ public class KmlCoordinates extends AppCompatActivity{
         return is;
     }
     public void getLatLngPois(TextView tvRouten){
-        for(int i=0; i<dbRoutenXmlContainerList.size(); i++){
-            if(dbRoutenXmlContainerList.get(i).getRoutenName_().equals(tvRouten.getText())){ //aktuelle Route
-                int routenID = dbRoutenXmlContainerList.get(i).getRoutenID_(); //speichere RoutenID
-                for(int x=0; x<dbRoutenPoiXmlContainerList.size(); x++){ //finde dazugehoerige Poi
-                    if(dbRoutenPoiXmlContainerList.get(x).getRoutenpoiIDrouten_()==routenID){
-                        routenPoiIDsPoi.add(dbRoutenPoiXmlContainerList.get(x).getRoutenpoiIDpoi_());
+        for(int i = 0; i< routenList.size(); i++){
+            if(routenList.get(i).getRoutenName_().equals(tvRouten.getText())){ //aktuelle Route
+                int routenID = routenList.get(i).getRoutenID_(); //speichere RoutenID
+                for(int x = 0; x< routenPointOfInterestLinkingList.size(); x++){ //finde dazugehoerige Poi
+                    if(routenPointOfInterestLinkingList.get(x).getRoutenpoiIDrouten_()==routenID){
+                        routenPoiIDsPoi.add(routenPointOfInterestLinkingList.get(x).getRoutenpoiIDpoi_());
                     }
                 }
             }
         }
         poiLats.clear();
         poiLngs.clear();
-        for(int y=0; y<dbPoiXmlContainerList.size(); y++){
+        for(int y = 0; y< PointOfInterestList.size(); y++){
             for(int z=0; z<routenPoiIDsPoi.size(); z++){ //vergleiche jeden Poi mit jeder ID
-                if(dbPoiXmlContainerList.get(y).getPoiID_()==routenPoiIDsPoi.get(z)){ //wenn übereinstimmt
-                    poiLats.add(dbPoiXmlContainerList.get(y).getPoiLat_());
-                    poiLngs.add(dbPoiXmlContainerList.get(y).getPoiLng_());
+                if(PointOfInterestList.get(y).getPoiID_()==routenPoiIDsPoi.get(z)){ //wenn übereinstimmt
+                    poiLats.add(PointOfInterestList.get(y).getPoiLat_());
+                    poiLngs.add(PointOfInterestList.get(y).getPoiLng_());
                 }
             }
         }

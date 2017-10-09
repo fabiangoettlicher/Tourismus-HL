@@ -29,6 +29,8 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,7 +54,7 @@ public class RoutenPoiInfo extends AppCompatActivity implements GoogleApiClient.
     private GoogleApiClient mGoogleApiClient;
     private SharedPreferences permissionExplanation;
 
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
 
     @Override
     protected void onPause() {
@@ -69,9 +71,9 @@ public class RoutenPoiInfo extends AppCompatActivity implements GoogleApiClient.
         createToolbar(R.id.toolbar_poi_info, R.color.Routen_rot);
         permissionExplanation = getSharedPreferences("pref", 0);
         pathLogos = new String[6];
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
         }
 
         if (mGoogleApiClient == null) {
@@ -129,9 +131,9 @@ public class RoutenPoiInfo extends AppCompatActivity implements GoogleApiClient.
         }
         final ImageView ivBild = (ImageView) findViewById(R.id.ImgViewInfoPoi);
         if(ReadDataFromFile.getDbPoiXmlContainerList(this)==null){
-            for(int i=0; i<dbPoiXmlContainerList.size(); i++){
-                if(dbPoiXmlContainerList.get(i).getPoiID_()==shownPoiId){
-                    String url = dbPoiXmlContainerList.get(i).getPoiBild_();
+            for(int i = 0; i< PointOfInterestList.size(); i++){
+                if(PointOfInterestList.get(i).getPoiID_()==shownPoiId){
+                    String url = PointOfInterestList.get(i).getPoiBild_();
                     GetBitmapOnline task = new GetBitmapOnline(url, new GetBitmapOnline.AsyncResponse() {
                         @Override
                         public void processFinish(Bitmap bitmap) {
@@ -192,38 +194,38 @@ public class RoutenPoiInfo extends AppCompatActivity implements GoogleApiClient.
 
     private void getData() {
         SharedPreferences language = getSharedPreferences("pref", 0);
-        for (int i = 0; i < dbPoiXmlContainerList.size(); i++) {
-            if (dbPoiXmlContainerList.get(i).getPoiID_() == shownPoiId) {
-                name = dbPoiXmlContainerList.get(i).getPoiName_();
-                katID = dbPoiXmlContainerList.get(i).getPoiKatID_();
-                if (!dbPoiXmlContainerList.get(i).getPoiLat_().equals("") || !dbPoiXmlContainerList.get(i).getPoiLng_().equals("")) {
-                    lat = Double.parseDouble(dbPoiXmlContainerList.get(i).getPoiLat_());
-                    lng = Double.parseDouble(dbPoiXmlContainerList.get(i).getPoiLng_());
+        for (int i = 0; i < PointOfInterestList.size(); i++) {
+            if (PointOfInterestList.get(i).getPoiID_() == shownPoiId) {
+                name = PointOfInterestList.get(i).getPoiName_();
+                katID = PointOfInterestList.get(i).getPoiKatID_();
+                if (!PointOfInterestList.get(i).getPoiLat_().equals("") || !PointOfInterestList.get(i).getPoiLng_().equals("")) {
+                    lat = Double.parseDouble(PointOfInterestList.get(i).getPoiLat_());
+                    lng = Double.parseDouble(PointOfInterestList.get(i).getPoiLng_());
                 } else {
                     lat = null;
                     lng = null;
                 }
-                addr = dbPoiXmlContainerList.get(i).getPoiKontak1_();
-                tel = dbPoiXmlContainerList.get(i).getPoiKontak2_();
-                email = dbPoiXmlContainerList.get(i).getPoiKontak3_();
-                homepage = dbPoiXmlContainerList.get(i).getPoiKontak4_();
-                kontakt5 = dbPoiXmlContainerList.get(i).getPoiKontak5_();
-                pathBild = dbPoiXmlContainerList.get(i).getPathBild_();
-                pathLogos[0] = dbPoiXmlContainerList.get(i).getPathLogo1_();
-                pathLogos[1] = dbPoiXmlContainerList.get(i).getPathLogo2_();
-                pathLogos[2] = dbPoiXmlContainerList.get(i).getPathLogo3_();
-                pathLogos[3] = dbPoiXmlContainerList.get(i).getPathLogo4_();
-                pathLogos[4] = dbPoiXmlContainerList.get(i).getPathLogo5_();
-                pathLogos[5] = dbPoiXmlContainerList.get(i).getPathLogo6_();
+                addr = PointOfInterestList.get(i).getPoiKontak1_();
+                tel = PointOfInterestList.get(i).getPoiKontak2_();
+                email = PointOfInterestList.get(i).getPoiKontak3_();
+                homepage = PointOfInterestList.get(i).getPoiKontak4_();
+                kontakt5 = PointOfInterestList.get(i).getPoiKontak5_();
+                pathBild = PointOfInterestList.get(i).getPathBild_();
+                pathLogos[0] = PointOfInterestList.get(i).getPathLogo1_();
+                pathLogos[1] = PointOfInterestList.get(i).getPathLogo2_();
+                pathLogos[2] = PointOfInterestList.get(i).getPathLogo3_();
+                pathLogos[3] = PointOfInterestList.get(i).getPathLogo4_();
+                pathLogos[4] = PointOfInterestList.get(i).getPathLogo5_();
+                pathLogos[5] = PointOfInterestList.get(i).getPathLogo6_();
                 if (language.getString("ActiveLang", "").equals("ger")) {
-                    oeffnung = dbPoiXmlContainerList.get(i).getPoiOffenDE_();
-                    info = dbPoiXmlContainerList.get(i).getPoiTextDE_();
+                    oeffnung = PointOfInterestList.get(i).getPoiOffenDE_();
+                    info = PointOfInterestList.get(i).getPoiTextDE_();
                 } else if (language.getString("ActiveLang", "").equals("bri")) {
-                    oeffnung = dbPoiXmlContainerList.get(i).getPoiOffenEN_();
-                    info = dbPoiXmlContainerList.get(i).getPoiTextEN_();
+                    oeffnung = PointOfInterestList.get(i).getPoiOffenEN_();
+                    info = PointOfInterestList.get(i).getPoiTextEN_();
                 } else if (language.getString("ActiveLang", "").equals("cze")) {
-                    oeffnung = dbPoiXmlContainerList.get(i).getPoiOffenCZ_();
-                    info = dbPoiXmlContainerList.get(i).getPoiTextCZ_();
+                    oeffnung = PointOfInterestList.get(i).getPoiOffenCZ_();
+                    info = PointOfInterestList.get(i).getPoiTextCZ_();
                 }
             }
         }

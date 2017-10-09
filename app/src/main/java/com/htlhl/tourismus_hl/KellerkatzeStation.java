@@ -3,8 +3,6 @@ package com.htlhl.tourismus_hl;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -13,21 +11,9 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
-import android.support.annotation.BoolRes;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -37,17 +23,16 @@ import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import static com.htlhl.tourismus_hl.KellerkatzeHaupt.stringEtStationNr;
 
 
 public class KellerkatzeStation extends AppCompatActivity {
@@ -62,7 +47,7 @@ public class KellerkatzeStation extends AppCompatActivity {
     private FragmentManager fm;
     private TextView tvTextStation;
     private ImageView Stationsbild;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
     private List<String> stationNumbers, stationLats, stationLngs, stationNamen;
     private List<Integer> stationIDs;
     private FloatingActionMenu fabMenu;
@@ -112,9 +97,9 @@ public class KellerkatzeStation extends AppCompatActivity {
         fabMenu = (FloatingActionMenu) findViewById(R.id.langAudio_fab);
         fabItem1 = (FloatingActionButton) findViewById(R.id.langAudio_item_1);
         fabItem2 = (FloatingActionButton) findViewById(R.id.langAudio_item_2);
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        if (dbPoiXmlContainerList == null) {
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        if (PointOfInterestList == null) {
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
         }
         stationIDs = new ArrayList<>();
         stationNumbers = new ArrayList<>();
@@ -213,21 +198,21 @@ public class KellerkatzeStation extends AppCompatActivity {
                 }
             }
         }
-        for (int i = 0; i < dbPoiXmlContainerList.size(); i++) {
-            if (dbPoiXmlContainerList.get(i).getPoiName_().equals(loggedStation)) {
-                Header = dbPoiXmlContainerList.get(i).getPoiName_();
-                String stationcode = dbPoiXmlContainerList.get(i).getPoiStat_();
+        for (int i = 0; i < PointOfInterestList.size(); i++) {
+            if (PointOfInterestList.get(i).getPoiName_().equals(loggedStation)) {
+                Header = PointOfInterestList.get(i).getPoiName_();
+                String stationcode = PointOfInterestList.get(i).getPoiStat_();
                 if (language.getString("ActiveLang", "").equals("ger")) {
-                    stringTextStation = dbPoiXmlContainerList.get(i).getPoiTextDE_();
+                    stringTextStation = PointOfInterestList.get(i).getPoiTextDE_();
                 } else if (language.getString("ActiveLang", "").equals("bri")) {
-                    stringTextStation = dbPoiXmlContainerList.get(i).getPoiTextEN_();
+                    stringTextStation = PointOfInterestList.get(i).getPoiTextEN_();
                 } else if (language.getString("ActiveLang", "").equals("cze")) {
-                    stringTextStation = dbPoiXmlContainerList.get(i).getPoiTextCZ_();
+                    stringTextStation = PointOfInterestList.get(i).getPoiTextCZ_();
                 }
                 if (ReadDataFromFile.getDbPoiXmlContainerList(this) == null) {
-                    for (int x = 0; x < dbPoiXmlContainerList.size(); x++) {
-                        if (dbPoiXmlContainerList.get(x).getPoiStat_().equals(stringETStationNr)) {
-                            String url = dbPoiXmlContainerList.get(x).getPoiBild_();
+                    for (int x = 0; x < PointOfInterestList.size(); x++) {
+                        if (PointOfInterestList.get(x).getPoiStat_().equals(stringETStationNr)) {
+                            String url = PointOfInterestList.get(x).getPoiBild_();
                             GetBitmapOnline task = new GetBitmapOnline(url, new GetBitmapOnline.AsyncResponse() {
                                 @Override
                                 public void processFinish(Bitmap bitmap) {
@@ -238,7 +223,7 @@ public class KellerkatzeStation extends AppCompatActivity {
                         }
                     }
                 } else {
-                    Stationsbild.setImageBitmap(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(i).getPathBild_()));
+                    Stationsbild.setImageBitmap(ReadDataFromFile.getBitmap(PointOfInterestList.get(i).getPathBild_()));
                 }
                 for (int y = 0; y < stationNumbers.size(); y++) {
                     if (stationNumbers.get(y).equals(stationcode)) {
@@ -312,19 +297,19 @@ public class KellerkatzeStation extends AppCompatActivity {
     }
 
     private void getData() {
-        for (int i = 0; i < dbPoiXmlContainerList.size(); i++) {
-            if (dbPoiXmlContainerList.get(i).getPoiKatID_() == 9) { //KatID 9 = Station
-                stationIDs.add(dbPoiXmlContainerList.get(i).getPoiID_());
+        for (int i = 0; i < PointOfInterestList.size(); i++) {
+            if (PointOfInterestList.get(i).getPoiKatID_() == 9) { //KatID 9 = Station
+                stationIDs.add(PointOfInterestList.get(i).getPoiID_());
             }
         }
         Collections.sort(stationIDs);
         for (int x = 0; x < stationIDs.size(); x++) {
-            for (int y = 0; y < dbPoiXmlContainerList.size(); y++) {
-                if (stationIDs.get(x) == dbPoiXmlContainerList.get(y).getPoiID_()) {
-                    stationNumbers.add(dbPoiXmlContainerList.get(y).getPoiStat_());
-                    stationLngs.add(dbPoiXmlContainerList.get(y).getPoiLng_());
-                    stationLats.add(dbPoiXmlContainerList.get(y).getPoiLat_());
-                    stationNamen.add(dbPoiXmlContainerList.get(y).getPoiName_());
+            for (int y = 0; y < PointOfInterestList.size(); y++) {
+                if (stationIDs.get(x) == PointOfInterestList.get(y).getPoiID_()) {
+                    stationNumbers.add(PointOfInterestList.get(y).getPoiStat_());
+                    stationLngs.add(PointOfInterestList.get(y).getPoiLng_());
+                    stationLats.add(PointOfInterestList.get(y).getPoiLat_());
+                    stationNamen.add(PointOfInterestList.get(y).getPoiName_());
                 }
             }
         }

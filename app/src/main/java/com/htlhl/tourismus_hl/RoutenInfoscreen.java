@@ -6,8 +6,10 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.widget.TextView;
+
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -41,19 +43,19 @@ public class RoutenInfoscreen extends AppCompatActivity {
 
     public void getData (){
         TextView tvInfo = (TextView) findViewById(R.id.tv_info_route);
-        List<DbPoiXmlContainer> dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+        List<PointOfInterest> PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
         }
         SharedPreferences language = getSharedPreferences("pref", 0);
-        for(int i=0; i<dbPoiXmlContainerList.size(); i++){
-            if(dbPoiXmlContainerList.get(i).getPoiID_() == 64){ //Routeninfoseite
+        for(int i = 0; i< PointOfInterestList.size(); i++){
+            if(PointOfInterestList.get(i).getPoiID_() == 64){ //Routeninfoseite
                 if (language.getString("ActiveLang", "").equals("ger")) {
-                    tvInfo.setText(dbPoiXmlContainerList.get(i).getPoiTextDE_());
+                    tvInfo.setText(PointOfInterestList.get(i).getPoiTextDE_());
                 } else if (language.getString("ActiveLang", "").equals("bri")) {
-                    tvInfo.setText(dbPoiXmlContainerList.get(i).getPoiTextEN_());
+                    tvInfo.setText(PointOfInterestList.get(i).getPoiTextEN_());
                 } else if (language.getString("ActiveLang", "").equals("cze")) {
-                    tvInfo.setText(dbPoiXmlContainerList.get(i).getPoiTextCZ_());
+                    tvInfo.setText(PointOfInterestList.get(i).getPoiTextCZ_());
                 }
             }
         }

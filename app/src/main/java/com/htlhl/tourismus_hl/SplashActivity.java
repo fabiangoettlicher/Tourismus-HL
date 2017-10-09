@@ -15,6 +15,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
+import com.htlhl.tourismus_hl.Data.Model.RoutenPointOfInterestLinking;
+
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
@@ -32,16 +37,16 @@ public class SplashActivity extends AppCompatActivity implements DbDownloadTask.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         context = this;
-        List<DbPoiXmlContainer> dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        List<DbRoutenXmlContainer> dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
-        List<DbRoutenPoiXmlContainer> dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(this);
+        List<PointOfInterest> PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        List<Routen> routenList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
+        List<RoutenPointOfInterestLinking> routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(this);
         ProgressBar splashProgress = (ProgressBar) findViewById(R.id.splashProgress);
         splashProgress.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.KG_orange), android.graphics.PorterDuff.Mode.MULTIPLY);
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         //lokal Databasefiles are not available
-        if (dbPoiXmlContainerList == null || dbRoutenXmlContainerList == null ||
-                dbRoutenPoiXmlContainerList == null) {
+        if (PointOfInterestList == null || routenList == null ||
+                routenPointOfInterestLinkingList == null) {
             if (mWifi.isConnected()) { //check if WIFI is connected
                 //start downloading
                 MainActivity.UrlParams urlParams = new MainActivity.UrlParams(
@@ -90,8 +95,8 @@ public class SplashActivity extends AppCompatActivity implements DbDownloadTask.
             }
         }
         //lokal Datafiles ar available
-        if (dbPoiXmlContainerList !=null && dbRoutenXmlContainerList !=null
-                && dbRoutenPoiXmlContainerList !=null) {
+        if (PointOfInterestList !=null && routenList !=null
+                && routenPointOfInterestLinkingList !=null) {
             //start download
             MainActivity.UrlParams urlParams = new MainActivity.UrlParams(
                     URL_POI_XML, URL_ROUTEN_XML, URL_ROUTENPOI_XML, context);

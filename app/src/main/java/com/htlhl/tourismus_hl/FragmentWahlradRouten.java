@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +38,7 @@ public class FragmentWahlradRouten extends ListFragment implements AdapterView.O
     private String stringRoutenname, pathHoehen, pathRoutenLogo1, pathRoutenLogo2;
     private FragmentManager fm;
     private WahlradCustomRow adapter;
-    private List<DbRoutenXmlContainer> dbRoutenXmlContainerList;
+    private List<Routen> routenList;
     public ListView lvWahlrad;
     private List<String> radwegeNamen, wanderwegeNamen;
 
@@ -68,7 +70,7 @@ public class FragmentWahlradRouten extends ListFragment implements AdapterView.O
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context=getActivity();
-        dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(getActivity());
+        routenList = ReadDataFromFile.getDbRoutenXmlContainerList(getActivity());
         LinearLayout layoutRoutenwahl = (LinearLayout) getActivity().findViewById(R.id.Top_Layout_routenwahl);
         lvWahlrad = (ListView) getActivity().findViewById(android.R.id.list);
         fm = getFragmentManager();

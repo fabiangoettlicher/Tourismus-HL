@@ -1,10 +1,10 @@
-package com.htlhl.tourismus_hl;
+package com.htlhl.tourismus_hl.Data.Model;
 
 
 import java.io.Serializable;
 import java.util.Date;
 
-class DbRoutenXmlContainer implements Serializable {
+public class Routen implements Serializable {
     private String routenName_, routenKml_, routenLink_,
             routenBild1_, routenBild2_, routenBild3_;
     private String routenInfo1DE_, routenInfo2DE_, routenInfo3DE_,
@@ -17,20 +17,20 @@ class DbRoutenXmlContainer implements Serializable {
     private String pathBild1_, pathBild2_, pathBild3_, pathKml_;
     private Date dateBild1_, dateBild2_, dateBild3_, dateKml_;
 
-    DbRoutenXmlContainer(String routenName_, String routenKml_, String routenLink_,
-                         String routenBild1_, String routenBild2_,
-                         String routenBild3_, String routenInfo1DE_,
-                         String routenInfo2DE_, String routenInfo3DE_,
-                         String routenInfo4DE_, String routenInfo5DE_,
-                         String routenInfo6DE_, String routenInfo7DE_,
-                         String routenInfo1EN_, String routenInfo2EN_,
-                         String routenInfo3EN_, String routenInfo4EN_,
-                         String routenInfo5EN_, String routenInfo6EN_,
-                         String routenInfo7EN_, String routenInfo1CZ_,
-                         String routenInfo2CZ_, String routenInfo3CZ_,
-                         String routenInfo4CZ_, String routenInfo5CZ_,
-                         String routenInfo6CZ_, String routenInfo7CZ_,
-                         int routenID_, int routenKatID_) {
+    public Routen(String routenName_, String routenKml_, String routenLink_,
+           String routenBild1_, String routenBild2_,
+           String routenBild3_, String routenInfo1DE_,
+           String routenInfo2DE_, String routenInfo3DE_,
+           String routenInfo4DE_, String routenInfo5DE_,
+           String routenInfo6DE_, String routenInfo7DE_,
+           String routenInfo1EN_, String routenInfo2EN_,
+           String routenInfo3EN_, String routenInfo4EN_,
+           String routenInfo5EN_, String routenInfo6EN_,
+           String routenInfo7EN_, String routenInfo1CZ_,
+           String routenInfo2CZ_, String routenInfo3CZ_,
+           String routenInfo4CZ_, String routenInfo5CZ_,
+           String routenInfo6CZ_, String routenInfo7CZ_,
+           int routenID_, int routenKatID_) {
         this.routenName_ = routenName_; this.routenKml_ = routenKml_;
         this.routenLink_ = routenLink_; this.routenBild1_ = routenBild1_;
         this.routenBild2_ = routenBild2_; this.routenBild3_ = routenBild3_;
@@ -59,183 +59,179 @@ class DbRoutenXmlContainer implements Serializable {
         this.routenKatID_ = routenKatID_;
     }
 
-    String getRoutenName_() {
+    public String getRoutenName_() {
         return routenName_;
     }
 
-    String getRoutenKml_() {
+    public String getRoutenKml_() {
         return routenKml_;
     }
 
-    String getRoutenLink_() {
-        return routenLink_;
-    }
-
-    String getRoutenBild1_() {
+    public String getRoutenBild1_() {
         return routenBild1_;
     }
 
-    String getRoutenBild2_() {
+    public String getRoutenBild2_() {
         return routenBild2_;
     }
 
-    String getRoutenBild3_() {
+    public String getRoutenBild3_() {
         return routenBild3_;
     }
 
-    String getRoutenInfo1DE_() {
+    public String getRoutenInfo1DE_() {
         return routenInfo1DE_;
     }
 
-    String getRoutenInfo2DE_() {
+    public String getRoutenInfo2DE_() {
         return routenInfo2DE_;
     }
 
-    String getRoutenInfo3DE_() {
+    public String getRoutenInfo3DE_() {
         return routenInfo3DE_;
     }
 
-    String getRoutenInfo4DE_() {
+    public String getRoutenInfo4DE_() {
         return routenInfo4DE_;
     }
 
-    String getRoutenInfo5DE_() {
+    public String getRoutenInfo5DE_() {
         return routenInfo5DE_;
     }
 
-    String getRoutenInfo6DE_() {
+    public String getRoutenInfo6DE_() {
         return routenInfo6DE_;
     }
 
-    String getRoutenInfo7DE_() {
+    public String getRoutenInfo7DE_() {
         return routenInfo7DE_;
     }
 
-    String getRoutenInfo1EN_() {
+    public String getRoutenInfo1EN_() {
         return routenInfo1EN_;
     }
 
-    String getRoutenInfo2EN_() {
+    public String getRoutenInfo2EN_() {
         return routenInfo2EN_;
     }
 
-    String getRoutenInfo3EN_() {
+    public String getRoutenInfo3EN_() {
         return routenInfo3EN_;
     }
 
-    String getRoutenInfo4EN_() {
+    public String getRoutenInfo4EN_() {
         return routenInfo4EN_;
     }
 
-    String getRoutenInfo5EN_() {
+    public String getRoutenInfo5EN_() {
         return routenInfo5EN_;
     }
 
-    String getRoutenInfo6EN_() {
+    public String getRoutenInfo6EN_() {
         return routenInfo6EN_;
     }
 
-    String getRoutenInfo7EN_() {
+    public String getRoutenInfo7EN_() {
         return routenInfo7EN_;
     }
 
-    String getRoutenInfo1CZ_() {
+    public String getRoutenInfo1CZ_() {
         return routenInfo1CZ_;
     }
 
-    String getRoutenInfo2CZ_() {
+    public String getRoutenInfo2CZ_() {
         return routenInfo2CZ_;
     }
 
-    String getRoutenInfo3CZ_() {
+    public String getRoutenInfo3CZ_() {
         return routenInfo3CZ_;
     }
 
-    String getRoutenInfo4CZ_() {
+    public String getRoutenInfo4CZ_() {
         return routenInfo4CZ_;
     }
 
-    String getRoutenInfo5CZ_() {
+    public String getRoutenInfo5CZ_() {
         return routenInfo5CZ_;
     }
 
-    String getRoutenInfo6CZ_() {
+    public String getRoutenInfo6CZ_() {
         return routenInfo6CZ_;
     }
 
-    String getRoutenInfo7CZ_() {
+    public String getRoutenInfo7CZ_() {
         return routenInfo7CZ_;
     }
 
-    int getRoutenID_() {
+    public int getRoutenID_() {
         return routenID_;
     }
 
-    int getRoutenKatID_() {
+    public int getRoutenKatID_() {
         return routenKatID_;
     }
 
-    String getPathBild1_() {
+    public String getPathBild1_() {
         return pathBild1_;
     }
 
-    void setPathBild1_(String pathBild1_) {
+    public void setPathBild1_(String pathBild1_) {
         this.pathBild1_ = pathBild1_;
     }
 
-    String getPathBild2_() {
+    public String getPathBild2_() {
         return pathBild2_;
     }
 
-    void setPathBild2_(String pathBild2_) {
+    public void setPathBild2_(String pathBild2_) {
         this.pathBild2_ = pathBild2_;
     }
 
-    String getPathBild3_() {
+    public String getPathBild3_() {
         return pathBild3_;
     }
 
-    void setPathBild3_(String pathBild3_) {
+    public void setPathBild3_(String pathBild3_) {
         this.pathBild3_ = pathBild3_;
     }
 
-    String getPathKml_() {
+    public String getPathKml_() {
         return pathKml_;
     }
 
-    void setPathKml_(String pathKml_) {
+    public void setPathKml_(String pathKml_) {
         this.pathKml_ = pathKml_;
     }
 
-    Date getDateKml_() {
+    public Date getDateKml_() {
         return dateKml_;
     }
 
-    void setDateKml_(Date dateKml_) {
+    public void setDateKml_(Date dateKml_) {
         this.dateKml_ = dateKml_;
     }
 
-    Date getDateBild3_() {
+    public Date getDateBild3_() {
         return dateBild3_;
     }
 
-    void setDateBild3_(Date dateBild3_) {
+    public void setDateBild3_(Date dateBild3_) {
         this.dateBild3_ = dateBild3_;
     }
 
-    Date getDateBild2_() {
+    public Date getDateBild2_() {
         return dateBild2_;
     }
 
-    void setDateBild2_(Date dateBild2_) {
+    public void setDateBild2_(Date dateBild2_) {
         this.dateBild2_ = dateBild2_;
     }
 
-    Date getDateBild1_() {
+    public Date getDateBild1_() {
         return dateBild1_;
     }
 
-    void setDateBild1_(Date dateBild1_) {
+    public void setDateBild1_(Date dateBild1_) {
         this.dateBild1_ = dateBild1_;
     }
 }

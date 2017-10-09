@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -30,7 +32,7 @@ public class RoutenPoiList extends AppCompatActivity {
     static Boolean listViewShown = false;
 
     private Location lastLocation;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
     private List<Integer> routenPoiIDsPoi, poiIcons, poiIDs;
     private List<String> poiNamen, poiEntfernungen, poiKontakte1;
     private List<Bitmap> poiBitmapLogoList, poiBew;
@@ -44,9 +46,9 @@ public class RoutenPoiList extends AppCompatActivity {
         listViewShown = true;
         createToolbar(R.id.toolbar_list_view_poi, R.color.Routen_rot);
 
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
         }
         routenPoiIDsPoi = RoutenHaupt.routenPoiIDsPoi;
         poiNamen = new ArrayList<>();
@@ -123,13 +125,13 @@ public class RoutenPoiList extends AppCompatActivity {
         float floatDistanceM, floatDistanceKM;
         String stringDistance;
 
-        for (int y = 0; y < dbPoiXmlContainerList.size(); y++) {
+        for (int y = 0; y < PointOfInterestList.size(); y++) {
             for (int z = 0; z < routenPoiIDsPoi.size(); z++) { //vergleiche jeden Poi mit jeder ID
-                if (dbPoiXmlContainerList.get(y).getPoiID_() == routenPoiIDsPoi.get(z)) { //wenn übereinstimmt
-                    poiIDs.add(dbPoiXmlContainerList.get(y).getPoiID_());
-                    if (!dbPoiXmlContainerList.get(y).getPoiLat_().equals("") && !dbPoiXmlContainerList.get(y).getPoiLng_().equals("") && lastLocation!=null) {
-                        poiLocation.setLatitude(Double.parseDouble(dbPoiXmlContainerList.get(y).getPoiLat_()));
-                        poiLocation.setLongitude(Double.parseDouble(dbPoiXmlContainerList.get(y).getPoiLng_()));
+                if (PointOfInterestList.get(y).getPoiID_() == routenPoiIDsPoi.get(z)) { //wenn übereinstimmt
+                    poiIDs.add(PointOfInterestList.get(y).getPoiID_());
+                    if (!PointOfInterestList.get(y).getPoiLat_().equals("") && !PointOfInterestList.get(y).getPoiLng_().equals("") && lastLocation!=null) {
+                        poiLocation.setLatitude(Double.parseDouble(PointOfInterestList.get(y).getPoiLat_()));
+                        poiLocation.setLongitude(Double.parseDouble(PointOfInterestList.get(y).getPoiLng_()));
                         floatDistanceM = lastLocation.distanceTo(poiLocation);
                         floatDistanceKM = floatDistanceM / 1000;
                         if (floatDistanceM < 100) {
@@ -141,28 +143,28 @@ public class RoutenPoiList extends AppCompatActivity {
                     } else {
                         poiEntfernungen.add(" ");
                     }
-                    poiNamen.add(dbPoiXmlContainerList.get(y).getPoiName_());
-                    poiKontakte1.add(dbPoiXmlContainerList.get(y).getPoiKontak1_());
-                    if (dbPoiXmlContainerList.get(y).getPathLogo1_() != null) {
-                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(y).getPathLogo1_()));
-                    } else if (dbPoiXmlContainerList.get(y).getPathLogo2_() != null) {
-                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(y).getPathLogo2_()));
-                    } else if (dbPoiXmlContainerList.get(y).getPathLogo3_() != null) {
-                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(y).getPathLogo3_()));
-                    } else if (dbPoiXmlContainerList.get(y).getPathLogo4_() != null) {
-                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(y).getPathLogo4_()));
-                    } else if (dbPoiXmlContainerList.get(y).getPathLogo5_() != null) {
-                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(y).getPathLogo5_()));
+                    poiNamen.add(PointOfInterestList.get(y).getPoiName_());
+                    poiKontakte1.add(PointOfInterestList.get(y).getPoiKontak1_());
+                    if (PointOfInterestList.get(y).getPathLogo1_() != null) {
+                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(PointOfInterestList.get(y).getPathLogo1_()));
+                    } else if (PointOfInterestList.get(y).getPathLogo2_() != null) {
+                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(PointOfInterestList.get(y).getPathLogo2_()));
+                    } else if (PointOfInterestList.get(y).getPathLogo3_() != null) {
+                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(PointOfInterestList.get(y).getPathLogo3_()));
+                    } else if (PointOfInterestList.get(y).getPathLogo4_() != null) {
+                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(PointOfInterestList.get(y).getPathLogo4_()));
+                    } else if (PointOfInterestList.get(y).getPathLogo5_() != null) {
+                        poiBitmapLogoList.add(ReadDataFromFile.getBitmap(PointOfInterestList.get(y).getPathLogo5_()));
                     } else {
                         poiBitmapLogoList.add(null);
                     }
-                    if(dbPoiXmlContainerList.get(y).getPathLogo6_() != null){
-                        poiBew.add(ReadDataFromFile.getBitmap(dbPoiXmlContainerList.get(y).getPathLogo6_()));
+                    if(PointOfInterestList.get(y).getPathLogo6_() != null){
+                        poiBew.add(ReadDataFromFile.getBitmap(PointOfInterestList.get(y).getPathLogo6_()));
                     } else {
                         poiBew.add(null);
                     }
                     int icon;
-                    switch (dbPoiXmlContainerList.get(y).getPoiKatID_()) {
+                    switch (PointOfInterestList.get(y).getPoiKatID_()) {
                         case 3:
                             icon = R.drawable.marker_restaurant;
                             break;

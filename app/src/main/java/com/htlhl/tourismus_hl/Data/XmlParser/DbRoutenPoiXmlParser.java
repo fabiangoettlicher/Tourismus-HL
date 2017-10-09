@@ -1,6 +1,8 @@
-package com.htlhl.tourismus_hl;
+package com.htlhl.tourismus_hl.Data.XmlParser;
 
 import android.util.Xml;
+
+import com.htlhl.tourismus_hl.Data.Model.RoutenPointOfInterestLinking;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -14,7 +16,7 @@ public class DbRoutenPoiXmlParser {
     // We don't use namespaces
     private static final String ns = null;
 
-    List parse(InputStream in) throws XmlPullParserException, IOException {
+    public List parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -51,7 +53,7 @@ public class DbRoutenPoiXmlParser {
 
     // Parses the contents of an entry. If it encounters a poiName, poiLng, or poiLat tag, hands them off
 // to their respective "read" methods for processing. Otherwise, skips the tag.
-    private DbRoutenPoiXmlContainer readRoutenPoi(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private RoutenPointOfInterestLinking readRoutenPoi(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "routenpoi");
         int routenpoiID_=-1, routenpoiIDrouten_=-1, routenpoiIDpoi_=-1;
 
@@ -76,7 +78,7 @@ public class DbRoutenPoiXmlParser {
                     break;
             }
         }
-        return new DbRoutenPoiXmlContainer(routenpoiID_, routenpoiIDrouten_, routenpoiIDpoi_);
+        return new RoutenPointOfInterestLinking(routenpoiID_, routenpoiIDrouten_, routenpoiIDpoi_);
     }
 
     // Processes title tags in the feed.

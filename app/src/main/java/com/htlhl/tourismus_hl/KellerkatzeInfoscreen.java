@@ -6,10 +6,12 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -25,21 +27,21 @@ public class KellerkatzeInfoscreen extends AppCompatActivity {
         setContentView(R.layout.activity_kellerkatze_infoscreen);
         createToolbar(R.id.toolbar_info_kg, R.color.KG_green);
 
-        List<DbPoiXmlContainer> dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+        List<PointOfInterest> PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
         }
         String welcomeText="", headerText="";
         SharedPreferences language = getSharedPreferences("pref", 0);
-        for(int i = 0; i< dbPoiXmlContainerList.size(); i++){
-            if(dbPoiXmlContainerList.get(i).getPoiID_() == 63){
-                headerText = dbPoiXmlContainerList.get(i).getPoiName_();
+        for(int i = 0; i< PointOfInterestList.size(); i++){
+            if(PointOfInterestList.get(i).getPoiID_() == 63){
+                headerText = PointOfInterestList.get(i).getPoiName_();
                 if (language.getString("ActiveLang", "").equals("ger")) {
-                    welcomeText = dbPoiXmlContainerList.get(i).getPoiTextDE_();
+                    welcomeText = PointOfInterestList.get(i).getPoiTextDE_();
                 } else if (language.getString("ActiveLang", "").equals("bri")) {
-                    welcomeText = dbPoiXmlContainerList.get(i).getPoiTextEN_();
+                    welcomeText = PointOfInterestList.get(i).getPoiTextEN_();
                 } else if (language.getString("ActiveLang", "").equals("cze")) {
-                    welcomeText = dbPoiXmlContainerList.get(i).getPoiTextCZ_();
+                    welcomeText = PointOfInterestList.get(i).getPoiTextCZ_();
                 }
             }
         }

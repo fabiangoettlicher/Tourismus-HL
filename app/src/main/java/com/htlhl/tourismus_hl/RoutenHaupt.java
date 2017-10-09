@@ -50,6 +50,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
+import com.htlhl.tourismus_hl.Data.Model.RoutenPointOfInterestLinking;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -89,9 +93,9 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
     private ScrollView svRouten;
     private android.support.v7.widget.Toolbar toolbar;
     private MapFragment mapFragment;
-    private List<DbRoutenXmlContainer> dbRoutenXmlContainerList;
-    private List<DbRoutenPoiXmlContainer> dbRoutenPoiXmlContainerList;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<Routen> routenList;
+    private List<RoutenPointOfInterestLinking> routenPointOfInterestLinkingList;
+    private List<PointOfInterest> PointOfInterestList;
     private List<Integer> poiIDs, poiKatIDs;
     private List<String> poiNamen, poiLats, poiLngs;
     private GoogleMap mapRoute;
@@ -172,17 +176,17 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
         }
         permissionExplanation = getSharedPreferences("pref", 0);
         context = this;
-        dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(this);
-        if (dbRoutenXmlContainerList == null || dbPoiXmlContainerList == null || dbRoutenPoiXmlContainerList == null) {
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
-            dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListKml(this);
-            if(dbRoutenXmlContainerList == null){
-                dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListText(this);
+        routenList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerList(this);
+        if (routenList == null || PointOfInterestList == null || routenPointOfInterestLinkingList == null) {
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+            routenList = ReadDataFromFile.getDbRoutenXmlContainerListKml(this);
+            if(routenList == null){
+                routenList = ReadDataFromFile.getDbRoutenXmlContainerListText(this);
                 Toast.makeText(this, R.string.waitkmldownload, Toast.LENGTH_LONG).show();
             }
-            dbRoutenPoiXmlContainerList = ReadDataFromFile.getDbRoutenPoiXmlContainerListText(this);
+            routenPointOfInterestLinkingList = ReadDataFromFile.getDbRoutenPoiXmlContainerListText(this);
         }
         radwegeNamen = new ArrayList<>();
         wanderwegNamen = new ArrayList<>();
@@ -261,9 +265,9 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
         } else if (FragmentRoutentyp.flagLauf) {
             stringTvTitle = getResources().getString(R.string.Kellergassenlauf);
             topLayout.setClickable(false);
-            for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-                if (dbRoutenXmlContainerList.get(i).getRoutenID_() == 25) {
-                    tvRouten.setText(dbRoutenXmlContainerList.get(i).getRoutenName_());
+            for (int i = 0; i < routenList.size(); i++) {
+                if (routenList.get(i).getRoutenID_() == 25) {
+                    tvRouten.setText(routenList.get(i).getRoutenName_());
                 }
             }
             ImgBtnPoi.setVisibility(View.GONE);
@@ -584,24 +588,24 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
         radwegeNamen.clear();
         wanderwegNamen.clear();
         if (FragmentRoutentyp.flagRad) {
-            for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-                if (dbRoutenXmlContainerList.get(i).getRoutenKatID_() == 5) { //KatID 5 = Radwege
-                    radwegeNamen.add(dbRoutenXmlContainerList.get(i).getRoutenName_());
-                    radwegeKmlPaths.add(dbRoutenXmlContainerList.get(i).getPathKml_());
+            for (int i = 0; i < routenList.size(); i++) {
+                if (routenList.get(i).getRoutenKatID_() == 5) { //KatID 5 = Radwege
+                    radwegeNamen.add(routenList.get(i).getRoutenName_());
+                    radwegeKmlPaths.add(routenList.get(i).getPathKml_());
                 }
             }
         } else if (FragmentRoutentyp.flagWander) {
-            for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-                if (dbRoutenXmlContainerList.get(i).getRoutenKatID_() == 6) { //KatID 6 = Wanderwege
-                    wanderwegNamen.add(dbRoutenXmlContainerList.get(i).getRoutenName_());
-                    wanderwegeKmlPaths.add(dbRoutenXmlContainerList.get(i).getPathKml_());
+            for (int i = 0; i < routenList.size(); i++) {
+                if (routenList.get(i).getRoutenKatID_() == 6) { //KatID 6 = Wanderwege
+                    wanderwegNamen.add(routenList.get(i).getRoutenName_());
+                    wanderwegeKmlPaths.add(routenList.get(i).getPathKml_());
                 }
             }
         }
         if (FragmentRoutentyp.flagLauf) {
-            for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-                if (dbRoutenXmlContainerList.get(i).getRoutenID_() == 25) { //Kellergassenlauf
-                    kellergassenlaufKmlPath = dbRoutenXmlContainerList.get(i).getPathKml_();
+            for (int i = 0; i < routenList.size(); i++) {
+                if (routenList.get(i).getRoutenID_() == 25) { //Kellergassenlauf
+                    kellergassenlaufKmlPath = routenList.get(i).getPathKml_();
                 }
             }
         }
@@ -610,13 +614,13 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
     private void getPoisDB() {
         routenPoiIDsPoi.clear();
         SharedPreferences language = getSharedPreferences("pref", 0);
-        for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-            if (dbRoutenXmlContainerList.get(i).getRoutenName_().equals(tvRouten.getText())) { //aktuelle Route
-                int routenID = dbRoutenXmlContainerList.get(i).getRoutenID_(); //speichere RoutenID
-                routenname = dbRoutenXmlContainerList.get(i).getRoutenName_();
-                for (int x = 0; x < dbRoutenPoiXmlContainerList.size(); x++) { //finde dazugehoerige Poi
-                    if (dbRoutenPoiXmlContainerList.get(x).getRoutenpoiIDrouten_() == routenID) {
-                        routenPoiIDsPoi.add(dbRoutenPoiXmlContainerList.get(x).getRoutenpoiIDpoi_());
+        for (int i = 0; i < routenList.size(); i++) {
+            if (routenList.get(i).getRoutenName_().equals(tvRouten.getText())) { //aktuelle Route
+                int routenID = routenList.get(i).getRoutenID_(); //speichere RoutenID
+                routenname = routenList.get(i).getRoutenName_();
+                for (int x = 0; x < routenPointOfInterestLinkingList.size(); x++) { //finde dazugehoerige Poi
+                    if (routenPointOfInterestLinkingList.get(x).getRoutenpoiIDrouten_() == routenID) {
+                        routenPoiIDsPoi.add(routenPointOfInterestLinkingList.get(x).getRoutenpoiIDpoi_());
                     }
                 }
             }
@@ -626,14 +630,14 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
         poiNamen.clear();
         poiIDs.clear();
         poiKatIDs.clear();
-        for (int y = 0; y < dbPoiXmlContainerList.size(); y++) {
+        for (int y = 0; y < PointOfInterestList.size(); y++) {
             for (int z = 0; z < routenPoiIDsPoi.size(); z++) { //vergleiche jeden Poi mit jeder ID
-                if (dbPoiXmlContainerList.get(y).getPoiID_() == routenPoiIDsPoi.get(z)) { //wenn übereinstimmt
-                    poiLats.add(dbPoiXmlContainerList.get(y).getPoiLat_());
-                    poiLngs.add(dbPoiXmlContainerList.get(y).getPoiLng_());
-                    poiNamen.add(dbPoiXmlContainerList.get(y).getPoiName_());
-                    poiKatIDs.add(dbPoiXmlContainerList.get(y).getPoiKatID_());
-                    poiIDs.add(dbPoiXmlContainerList.get(y).getPoiID_());
+                if (PointOfInterestList.get(y).getPoiID_() == routenPoiIDsPoi.get(z)) { //wenn übereinstimmt
+                    poiLats.add(PointOfInterestList.get(y).getPoiLat_());
+                    poiLngs.add(PointOfInterestList.get(y).getPoiLng_());
+                    poiNamen.add(PointOfInterestList.get(y).getPoiName_());
+                    poiKatIDs.add(PointOfInterestList.get(y).getPoiKatID_());
+                    poiIDs.add(PointOfInterestList.get(y).getPoiID_());
                 }
             }
         }
@@ -643,44 +647,44 @@ public class RoutenHaupt extends AppCompatActivity implements OnMapReadyCallback
         String currRoute;
         if (data != null) {
             currRoute = data;
-            dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(con);
-            if (dbRoutenXmlContainerList == null) {
-                dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListText(con);
+            routenList = ReadDataFromFile.getDbRoutenXmlContainerList(con);
+            if (routenList == null) {
+                routenList = ReadDataFromFile.getDbRoutenXmlContainerListText(con);
             }
         } else {
             currRoute = tvRouten.getText().toString();
         }
         SharedPreferences language = con.getSharedPreferences("pref", 0);
         routenInfos = new String[7];
-        for (int i = 0; i < dbRoutenXmlContainerList.size(); i++) {
-            if (dbRoutenXmlContainerList.get(i).getRoutenName_().equals(currRoute)) {
-                pathHoehen = dbRoutenXmlContainerList.get(i).getPathBild1_();
-                pathRoutenLogo1 = dbRoutenXmlContainerList.get(i).getPathBild2_();
-                pathRoutenLogo2 = dbRoutenXmlContainerList.get(i).getPathBild3_();
+        for (int i = 0; i < routenList.size(); i++) {
+            if (routenList.get(i).getRoutenName_().equals(currRoute)) {
+                pathHoehen = routenList.get(i).getPathBild1_();
+                pathRoutenLogo1 = routenList.get(i).getPathBild2_();
+                pathRoutenLogo2 = routenList.get(i).getPathBild3_();
                 if (language.getString("ActiveLang", "").equals("ger")) {
-                    routenInfos[0] = dbRoutenXmlContainerList.get(i).getRoutenInfo1DE_();
-                    routenInfos[1] = dbRoutenXmlContainerList.get(i).getRoutenInfo2DE_();
-                    routenInfos[2] = dbRoutenXmlContainerList.get(i).getRoutenInfo3DE_();
-                    routenInfos[3] = dbRoutenXmlContainerList.get(i).getRoutenInfo4DE_();
-                    routenInfos[4] = dbRoutenXmlContainerList.get(i).getRoutenInfo5DE_();
-                    routenInfos[5] = dbRoutenXmlContainerList.get(i).getRoutenInfo6DE_();
-                    routenInfos[6] = dbRoutenXmlContainerList.get(i).getRoutenInfo7DE_();
+                    routenInfos[0] = routenList.get(i).getRoutenInfo1DE_();
+                    routenInfos[1] = routenList.get(i).getRoutenInfo2DE_();
+                    routenInfos[2] = routenList.get(i).getRoutenInfo3DE_();
+                    routenInfos[3] = routenList.get(i).getRoutenInfo4DE_();
+                    routenInfos[4] = routenList.get(i).getRoutenInfo5DE_();
+                    routenInfos[5] = routenList.get(i).getRoutenInfo6DE_();
+                    routenInfos[6] = routenList.get(i).getRoutenInfo7DE_();
                 } else if (language.getString("ActiveLang", "").equals("bri")) {
-                    routenInfos[0] = dbRoutenXmlContainerList.get(i).getRoutenInfo1EN_();
-                    routenInfos[1] = dbRoutenXmlContainerList.get(i).getRoutenInfo2EN_();
-                    routenInfos[2] = dbRoutenXmlContainerList.get(i).getRoutenInfo3EN_();
-                    routenInfos[3] = dbRoutenXmlContainerList.get(i).getRoutenInfo4EN_();
-                    routenInfos[4] = dbRoutenXmlContainerList.get(i).getRoutenInfo5EN_();
-                    routenInfos[5] = dbRoutenXmlContainerList.get(i).getRoutenInfo6EN_();
-                    routenInfos[6] = dbRoutenXmlContainerList.get(i).getRoutenInfo7EN_();
+                    routenInfos[0] = routenList.get(i).getRoutenInfo1EN_();
+                    routenInfos[1] = routenList.get(i).getRoutenInfo2EN_();
+                    routenInfos[2] = routenList.get(i).getRoutenInfo3EN_();
+                    routenInfos[3] = routenList.get(i).getRoutenInfo4EN_();
+                    routenInfos[4] = routenList.get(i).getRoutenInfo5EN_();
+                    routenInfos[5] = routenList.get(i).getRoutenInfo6EN_();
+                    routenInfos[6] = routenList.get(i).getRoutenInfo7EN_();
                 } else if (language.getString("ActiveLang", "").equals("cze")) {
-                    routenInfos[0] = dbRoutenXmlContainerList.get(i).getRoutenInfo1CZ_();
-                    routenInfos[1] = dbRoutenXmlContainerList.get(i).getRoutenInfo2CZ_();
-                    routenInfos[2] = dbRoutenXmlContainerList.get(i).getRoutenInfo3CZ_();
-                    routenInfos[3] = dbRoutenXmlContainerList.get(i).getRoutenInfo4CZ_();
-                    routenInfos[4] = dbRoutenXmlContainerList.get(i).getRoutenInfo5CZ_();
-                    routenInfos[5] = dbRoutenXmlContainerList.get(i).getRoutenInfo6CZ_();
-                    routenInfos[6] = dbRoutenXmlContainerList.get(i).getRoutenInfo7CZ_();
+                    routenInfos[0] = routenList.get(i).getRoutenInfo1CZ_();
+                    routenInfos[1] = routenList.get(i).getRoutenInfo2CZ_();
+                    routenInfos[2] = routenList.get(i).getRoutenInfo3CZ_();
+                    routenInfos[3] = routenList.get(i).getRoutenInfo4CZ_();
+                    routenInfos[4] = routenList.get(i).getRoutenInfo5CZ_();
+                    routenInfos[5] = routenList.get(i).getRoutenInfo6CZ_();
+                    routenInfos[6] = routenList.get(i).getRoutenInfo7CZ_();
                 }
             }
         }

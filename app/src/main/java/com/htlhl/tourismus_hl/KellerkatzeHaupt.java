@@ -3,7 +3,6 @@ package com.htlhl.tourismus_hl;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
@@ -12,18 +11,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
@@ -37,6 +32,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.kml.KmlLayer;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
+import com.htlhl.tourismus_hl.Data.Model.Routen;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -63,9 +61,8 @@ public class KellerkatzeHaupt extends AppCompatActivity implements OnMapReadyCal
     private int tutorialNext=0;
     private Target targetNavigate,targetStation,targetWahl;
     private String [] Tutorial;
-    private boolean correct;
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
-    private List<DbRoutenXmlContainer> dbRoutenXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
+    private List<Routen> routenList;
     private List<Integer> stationIDs;
     private List<String> stationNumbers;
     private android.support.v7.widget.Toolbar toolbar;
@@ -77,13 +74,13 @@ public class KellerkatzeHaupt extends AppCompatActivity implements OnMapReadyCal
         setContentView(R.layout.activity_kellerkatze_haupt);
         createToolbar(R.id.toolbar_kg_haupt, R.color.KG_green);
 
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
-            dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListKml(this);
-            if(dbRoutenXmlContainerList == null){
-                dbRoutenXmlContainerList = ReadDataFromFile.getDbRoutenXmlContainerListText(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        routenList = ReadDataFromFile.getDbRoutenXmlContainerList(this);
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+            routenList = ReadDataFromFile.getDbRoutenXmlContainerListKml(this);
+            if(routenList == null){
+                routenList = ReadDataFromFile.getDbRoutenXmlContainerListText(this);
             }
         }
         stationIDs = new ArrayList<>();
@@ -298,19 +295,19 @@ public class KellerkatzeHaupt extends AppCompatActivity implements OnMapReadyCal
     }
 
     public void getData(){
-        for(int i=0; i<dbPoiXmlContainerList.size(); i++){
-            if(dbPoiXmlContainerList.get(i).getPoiKatID_()==9){ //KatID 9 = Station
-                stationIDs.add(dbPoiXmlContainerList.get(i).getPoiID_());
+        for(int i = 0; i< PointOfInterestList.size(); i++){
+            if(PointOfInterestList.get(i).getPoiKatID_()==9){ //KatID 9 = Station
+                stationIDs.add(PointOfInterestList.get(i).getPoiID_());
             }
         }
         Collections.sort(stationIDs);
         for(int x = 0; x< stationIDs.size(); x++){
-            for(int y=0; y<dbPoiXmlContainerList.size(); y++){
-                if(stationIDs.get(x) == dbPoiXmlContainerList.get(y).getPoiID_()){
-                    stationNamen.add(dbPoiXmlContainerList.get(y).getPoiName_());
-                    stationLATs.add(dbPoiXmlContainerList.get(y).getPoiLat_());
-                    stationLNGs.add(dbPoiXmlContainerList.get(y).getPoiLng_());
-                    stationNumbers.add(dbPoiXmlContainerList.get(y).getPoiStat_());
+            for(int y = 0; y< PointOfInterestList.size(); y++){
+                if(stationIDs.get(x) == PointOfInterestList.get(y).getPoiID_()){
+                    stationNamen.add(PointOfInterestList.get(y).getPoiName_());
+                    stationLATs.add(PointOfInterestList.get(y).getPoiLat_());
+                    stationLNGs.add(PointOfInterestList.get(y).getPoiLng_());
+                    stationNumbers.add(PointOfInterestList.get(y).getPoiStat_());
                 }
             }
         }

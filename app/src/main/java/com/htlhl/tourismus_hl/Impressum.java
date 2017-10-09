@@ -5,13 +5,12 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.vision.text.Text;
+import com.htlhl.tourismus_hl.Data.Local.ReadDataFromFile;
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -23,7 +22,7 @@ public class Impressum extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 15;
 
-    private List<DbPoiXmlContainer> dbPoiXmlContainerList;
+    private List<PointOfInterest> PointOfInterestList;
     private String lat, lng, name, addr, tel, email, homepage, kontakt5, info;
     private GoogleApiClient mGoogleApiClient;
     private Boolean permissionGranted = false;
@@ -35,9 +34,9 @@ public class Impressum extends AppCompatActivity {
         setContentView(R.layout.activity_impressum);
         createToolbar(R.id.toolbar_impressum, R.color.KG_green);
         permissionExplanation = getSharedPreferences("pref", 0);
-        dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerList(this);
-        if(dbPoiXmlContainerList==null){
-            dbPoiXmlContainerList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
+        PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerList(this);
+        if(PointOfInterestList ==null){
+            PointOfInterestList = ReadDataFromFile.getDbPoiXmlContainerListText(this);
         }
         getData();
 
@@ -90,22 +89,22 @@ public class Impressum extends AppCompatActivity {
 
     public void getData() {
         SharedPreferences language = getSharedPreferences("pref", 0);
-        for (int i = 0; i < dbPoiXmlContainerList.size(); i++) {
-            if (dbPoiXmlContainerList.get(i).getPoiID_() == 66) {
-                lat = dbPoiXmlContainerList.get(i).getPoiLat_();
-                lng = dbPoiXmlContainerList.get(i).getPoiLng_();
-                name = dbPoiXmlContainerList.get(i).getPoiName_();
-                addr = dbPoiXmlContainerList.get(i).getPoiKontak1_();
-                tel = dbPoiXmlContainerList.get(i).getPoiKontak2_();
-                email = dbPoiXmlContainerList.get(i).getPoiKontak3_();
-                homepage = dbPoiXmlContainerList.get(i).getPoiKontak4_();
-                kontakt5 = dbPoiXmlContainerList.get(i).getPoiKontak5_();
+        for (int i = 0; i < PointOfInterestList.size(); i++) {
+            if (PointOfInterestList.get(i).getPoiID_() == 66) {
+                lat = PointOfInterestList.get(i).getPoiLat_();
+                lng = PointOfInterestList.get(i).getPoiLng_();
+                name = PointOfInterestList.get(i).getPoiName_();
+                addr = PointOfInterestList.get(i).getPoiKontak1_();
+                tel = PointOfInterestList.get(i).getPoiKontak2_();
+                email = PointOfInterestList.get(i).getPoiKontak3_();
+                homepage = PointOfInterestList.get(i).getPoiKontak4_();
+                kontakt5 = PointOfInterestList.get(i).getPoiKontak5_();
                 if (language.getString("ActiveLang", "").equals("ger")) {
-                    info = dbPoiXmlContainerList.get(i).getPoiTextDE_();
+                    info = PointOfInterestList.get(i).getPoiTextDE_();
                 } else if (language.getString("ActiveLang", "").equals("bri")) {
-                    info = dbPoiXmlContainerList.get(i).getPoiTextEN_();
+                    info = PointOfInterestList.get(i).getPoiTextEN_();
                 } else if (language.getString("ActiveLang", "").equals("cze")) {
-                    info = dbPoiXmlContainerList.get(i).getPoiTextCZ_();
+                    info = PointOfInterestList.get(i).getPoiTextCZ_();
                 }
             }
         }

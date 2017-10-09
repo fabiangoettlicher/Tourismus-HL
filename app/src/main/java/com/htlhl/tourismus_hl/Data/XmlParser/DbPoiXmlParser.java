@@ -1,6 +1,8 @@
-package com.htlhl.tourismus_hl;
+package com.htlhl.tourismus_hl.Data.XmlParser;
 
 import android.util.Xml;
+
+import com.htlhl.tourismus_hl.Data.Model.PointOfInterest;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -11,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class DbPoiXmlParser {
+public class DbPoiXmlParser {
 
     // We don't use namespaces
     private static final String ns = null;
 
-    List parse(InputStream in) throws XmlPullParserException, IOException {
+    public List parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -53,7 +55,7 @@ class DbPoiXmlParser {
 
     // Parses the contents of an entry. If it encounters a poiName, poiLng, or poiLat tag, hands them off
 // to their respective "read" methods for processing. Otherwise, skips the tag.
-    private DbPoiXmlContainer readPoi(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private PointOfInterest readPoi(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "poi");
         String poiName_ = null, poiLat_ = null, poiLng_ = null, poiTextDE_ = null, poiTextEN_ = null, poiTextCZ_ = null, poiStat_ = null;
         String poiOffenDE_ = null, poiOffenEN_ = null, poiOffenCZ_ = null, poiAudioDE_ = null, poiAudioEN_ = null, poiAudioCZ_ = null;
@@ -154,7 +156,7 @@ class DbPoiXmlParser {
                     break;
             }
         }
-        return new DbPoiXmlContainer(poiName_, poiLat_, poiLng_, poiTextDE_, poiTextEN_, poiTextCZ_, poiStat_,
+        return new PointOfInterest(poiName_, poiLat_, poiLng_, poiTextDE_, poiTextEN_, poiTextCZ_, poiStat_,
                 poiLogo1_, poiLogo2_, poiLogo3_, poiLogo4_, poiLogo5_, poiLogo6_, poiBild_,
                 poiKontakt1_, poiKontakt2_, poiKontakt3_, poiKontakt4_, poiKontakt5_,
                 poiOffenDE_, poiOffenEN_, poiOffenCZ_, poiAudioDE_, poiAudioEN_, poiAudioCZ_, poiKatID_, poiID_);
