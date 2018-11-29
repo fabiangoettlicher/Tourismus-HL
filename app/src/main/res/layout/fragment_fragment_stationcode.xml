@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/border_code"
     android:paddingTop="2dp"
-    tools:context="com.htlhl.tourismus_hl.FragmentStationcode">
+    tools:context="com.htlhl.tourismus_hl_old.FragmentStationcode">
 
     <TextView
         android:id="@+id/stationscode_header"

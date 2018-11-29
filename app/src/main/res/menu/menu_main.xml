@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.htlhl.tourismus_hl.MainActivity">
+    tools:context="com.htlhl.tourismus_hl_old.MainActivity">
     <item
         android:id="@+id/menuDownload"
         android:icon="@drawable/ic_done_green_18dp"

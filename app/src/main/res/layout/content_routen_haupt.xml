@@ -295,7 +295,7 @@
 
     <fragment
         android:id="@+id/wahlrad_routen_grey_overlay"
-        android:name="com.htlhl.tourismus_hl.FragmentWahlradOverlay"
+        android:name="com.htlhl.tourismus_hl_old.FragmentWahlradOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/layout_wahlrad_routenwahl"
@@ -309,7 +309,7 @@
 
         <fragment
             android:id="@+id/wahlrad_routen"
-            android:name="com.htlhl.tourismus_hl.FragmentWahlradRouten"
+            android:name="com.htlhl.tourismus_hl_old.FragmentWahlradRouten"
             android:layout_width="match_parent"
             android:layout_height="160dp" />
     </FrameLayout>

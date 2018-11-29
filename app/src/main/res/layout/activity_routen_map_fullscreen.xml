@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.htlhl.tourismus_hl.RoutenMapFullscreen"
+    tools:context="com.htlhl.tourismus_hl_old.RoutenMapFullscreen"
     android:id="@+id/layout_fullscreen_map">
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"

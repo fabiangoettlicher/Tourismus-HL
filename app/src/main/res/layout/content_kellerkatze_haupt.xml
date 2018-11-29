@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.htlhl.tourismus_hl.KellerkatzeHaupt"
+    tools:context="com.htlhl.tourismus_hl_old.KellerkatzeHaupt"
     tools:showIn="@layout/activity_kellerkatze_haupt">
 
     <LinearLayout
@@ -180,13 +180,13 @@
 
     <fragment
         android:id="@+id/wahlrad_station"
-        android:name="com.htlhl.tourismus_hl.FragmentWahlradStation"
+        android:name="com.htlhl.tourismus_hl_old.FragmentWahlradStation"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_alignParentBottom="true" />
     <fragment
         android:id="@+id/wahlrad_station_grey_overlay"
-        android:name="com.htlhl.tourismus_hl.FragmentWahlradOverlay"
+        android:name="com.htlhl.tourismus_hl_old.FragmentWahlradOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"

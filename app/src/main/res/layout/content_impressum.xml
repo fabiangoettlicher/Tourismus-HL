@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.htlhl.tourismus_hl.MainActivity"
+    tools:context="com.htlhl.tourismus_hl_old.MainActivity"
     tools:showIn="@layout/activity_impressum">
 
     <RelativeLayout

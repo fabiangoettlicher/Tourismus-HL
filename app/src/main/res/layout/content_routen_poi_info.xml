@@ -9,7 +9,7 @@
     android:paddingStart="10dp"
     android:paddingEnd="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.htlhl.tourismus_hl.RoutenPoiInfo"
+    tools:context="com.htlhl.tourismus_hl_old.RoutenPoiInfo"
     tools:showIn="@layout/activity_routen_poi_info">
 
     <RelativeLayout

@@ -8,12 +8,12 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.htlhl.tourismus_hl.KellerkatzeStation"
+    tools:context="com.htlhl.tourismus_hl_old.KellerkatzeStation"
     tools:showIn="@layout/activity_kellerkatze_station">
 
     <fragment
         android:id="@+id/AudioplayerFragment"
-        android:name="com.htlhl.tourismus_hl.FragmentAudioplayer"
+        android:name="com.htlhl.tourismus_hl_old.FragmentAudioplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/CodeFragment"
-        android:name="com.htlhl.tourismus_hl.FragmentStationcode"
+        android:name="com.htlhl.tourismus_hl_old.FragmentStationcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

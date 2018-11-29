@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.htlhl.tourismus_hl"
+    package="com.htlhl.tourismus_hl_old"
     android:versionCode="12"
     android:versionName="2.4">
 
@@ -33,7 +33,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.htlhl.tourismus_hl_old.MainActivity"
             android:configChanges="keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -42,36 +42,36 @@
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.SplashActivity" />
+                android:value="com.htlhl.tourismus_hl_old.SplashActivity" />
         </activity>
         <activity
-            android:name=".Impressum"
+            android:name="com.htlhl.tourismus_hl_old.Impressum"
             android:label="@string/title_activity_impressum"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.MainActivity" />
+                android:value="com.htlhl.tourismus_hl_old.MainActivity" />
         </activity>
         <activity
-            android:name=".KellerkatzeInfoscreen"
+            android:name="com.htlhl.tourismus_hl_old.KellerkatzeInfoscreen"
             android:label="@string/title_activity_infoscreen_kg"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.MainActivity" />
+                android:value="com.htlhl.tourismus_hl_old.MainActivity" />
         </activity>
         <activity
-            android:name=".KellerkatzeHaupt"
+            android:name="com.htlhl.tourismus_hl_old.KellerkatzeHaupt"
             android:label="@string/title_activity_kellergasse_haupt"
-            android:parentActivityName=".KellerkatzeInfoscreen"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.KellerkatzeInfoscreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateHidden">
@@ -79,69 +79,69 @@
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.KellerkatzeInfoscreen" />
+                android:value="com.htlhl.tourismus_hl_old.KellerkatzeInfoscreen" />
         </activity>
         <activity
-            android:name=".KellerkatzeStation"
+            android:name="com.htlhl.tourismus_hl_old.KellerkatzeStation"
             android:label="@string/title_activity_station"
-            android:parentActivityName=".KellerkatzeHaupt"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.KellerkatzeHaupt"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.KellerkatzeHaupt" />
+                android:value="com.htlhl.tourismus_hl_old.KellerkatzeHaupt" />
         </activity>
         <activity
-            android:name=".RoutenInfoscreen"
+            android:name="com.htlhl.tourismus_hl_old.RoutenInfoscreen"
             android:label="@string/title_activity_infoscreen_routen"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.MainActivity" />
+                android:value="com.htlhl.tourismus_hl_old.MainActivity" />
         </activity>
         <activity
-            android:name=".RoutenHaupt"
+            android:name="com.htlhl.tourismus_hl_old.RoutenHaupt"
             android:label="@string/title_activity_routenwahl"
-            android:parentActivityName=".RoutenInfoscreen"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.RoutenInfoscreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.RoutenInfoscreen" />
+                android:value="com.htlhl.tourismus_hl_old.RoutenInfoscreen" />
         </activity>
         <activity
-            android:name=".RoutenPoiList"
+            android:name="com.htlhl.tourismus_hl_old.RoutenPoiList"
             android:label="@string/title_activity_list_view_poi"
-            android:parentActivityName=".RoutenHaupt"
+            android:parentActivityName="com.htlhl.tourismus_hl_old.RoutenHaupt"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.htlhl.tourismus_hl.RoutenHaupt" />
+                android:value="com.htlhl.tourismus_hl_old.RoutenHaupt" />
         </activity>
         <activity
-            android:name=".RoutenPoiInfo"
+            android:name="com.htlhl.tourismus_hl_old.RoutenPoiInfo"
             android:label="@string/title_activity_poi_information"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RoutenMapFullscreen"
+            android:name="com.htlhl.tourismus_hl_old.RoutenMapFullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_routen_map_fullscreen"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.htlhl.tourismus_hl_old.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"

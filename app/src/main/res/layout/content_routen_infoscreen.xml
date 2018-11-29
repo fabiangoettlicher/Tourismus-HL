@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.htlhl.tourismus_hl.RoutenInfoscreen"
+    tools:context="com.htlhl.tourismus_hl_old.RoutenInfoscreen"
     android:background="@color/white"
     tools:showIn="@layout/activity_routen_infoscreen">
 
@@ -28,7 +28,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:name="com.htlhl.tourismus_hl.FragmentRoutentyp"
+            android:name="com.htlhl.tourismus_hl_old.FragmentRoutentyp"
             android:id="@+id/RoutenwahlFragment" />
 
         <TextView
